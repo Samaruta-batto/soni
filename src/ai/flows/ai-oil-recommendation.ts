@@ -9,8 +9,9 @@
  * - OilRecommendationOutput - The return type for the getOilRecommendation function.
  */
 
-import {ai} from '@/ai/genkit';
-import {z} from 'genkit';
+import { ai } from '@/ai/genkit';
+import { z } from 'genkit';
+import { products } from '@/lib/data';
 
 const OilRecommendationInputSchema = z.object({
   needs: z
@@ -21,24 +22,32 @@ export type OilRecommendationInput = z.infer<typeof OilRecommendationInputSchema
 
 const OilRecommendationOutputSchema = z.object({
   recommendations: z
-    .string()
-    .describe('A list of essential oil recommendations based on the user-specified needs.'),
+    .array(z.string())
+    .describe('A list of product IDs for essential oils that are suitable for the user-specified needs.'),
+  message: z.string().describe('A friendly message explaining the recommendations.'),
 });
 export type OilRecommendationOutput = z.infer<typeof OilRecommendationOutputSchema>;
 
-export async function getOilRecommendation(input: OilRecommendationInput): Promise<OilRecommendationOutput> {
+export async function getOilRecommendation(
+  input: OilRecommendationInput
+): Promise<OilRecommendationOutput> {
   return oilRecommendationFlow(input);
 }
 
 const oilRecommendationPrompt = ai.definePrompt({
   name: 'oilRecommendationPrompt',
-  input: {schema: OilRecommendationInputSchema},
-  output: {schema: OilRecommendationOutputSchema},
-  prompt: `You are an AI assistant specializing in essential oil recommendations. Based on the user's specified needs, provide a list of suitable essential oils.
+  input: { schema: OilRecommendationInputSchema },
+  output: { schema: OilRecommendationOutputSchema },
+  prompt: `You are an AI assistant specializing in essential oil recommendations. Based on the user's specified needs, provide a list of suitable essential oil product IDs and a friendly message explaining why you chose them.
 
-Needs: {{{needs}}}
+You can only recommend products from the following list. Output only the 'id' of the product.
+Do not recommend products that are not on this list.
 
-Recommendations:`,
+Available Products:
+${products.map(p => `- ${p.name} (id: ${p.id})`).join('\n')}
+
+User Needs: {{{needs}}}
+`,
 });
 
 const oilRecommendationFlow = ai.defineFlow(
@@ -47,8 +56,8 @@ const oilRecommendationFlow = ai.defineFlow(
     inputSchema: OilRecommendationInputSchema,
     outputSchema: OilRecommendationOutputSchema,
   },
-  async input => {
-    const {output} = await oilRecommendationPrompt(input);
+  async (input) => {
+    const { output } = await oilRecommendationPrompt(input);
     return output!;
   }
 );
