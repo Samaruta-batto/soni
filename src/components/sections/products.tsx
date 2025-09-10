@@ -65,6 +65,8 @@ export function Products() {
     </div>
   );
 
+  const selectedOilImage = selectedOil ? PlaceHolderImages.find((img) => img.id === selectedOil.id) : null;
+
   return (
     <>
       <section id="products" className="w-full py-16 md:py-24 lg:py-32">
@@ -98,27 +100,40 @@ export function Products() {
       </section>
 
       <Dialog open={!!selectedOil} onOpenChange={(open) => !open && setSelectedOil(null)}>
-        <DialogContent className="sm:max-w-lg">
+        <DialogContent className="sm:max-w-lg p-0">
           {selectedOil && (
             <>
-              <DialogHeader>
-                <DialogTitle className="font-headline text-2xl">{selectedOil.name}</DialogTitle>
-                <DialogDescription>{selectedOil.shortDescription}</DialogDescription>
-              </DialogHeader>
-              <ScrollArea className="max-h-[70vh]">
-                <div className="py-4 pr-6">
-                  <p className="text-sm text-muted-foreground mb-4">{selectedOil.longDescription}</p>
-                  <h4 className="font-semibold mb-2">Key Benefits:</h4>
-                  <ul className="space-y-2">
-                    {selectedOil.benefits.map((benefit, i) => (
-                      <li key={i} className="flex items-start gap-2">
-                        <Check className="h-4 w-4 mt-1 text-primary shrink-0" />
-                        <span className="text-sm">{benefit}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </ScrollArea>
+              {selectedOilImage && (
+                  <div className="relative aspect-video w-full">
+                    <Image
+                      src={selectedOilImage.imageUrl}
+                      alt={selectedOil.name}
+                      fill
+                      className="object-cover"
+                      data-ai-hint={selectedOilImage.imageHint}
+                    />
+                  </div>
+                )}
+              <div className="p-6">
+                <DialogHeader>
+                  <DialogTitle className="font-headline text-2xl">{selectedOil.name}</DialogTitle>
+                  <DialogDescription>{selectedOil.shortDescription}</DialogDescription>
+                </DialogHeader>
+                <ScrollArea className="max-h-[50vh] mt-4">
+                  <div className="py-4 pr-6">
+                    <p className="text-sm text-muted-foreground mb-4">{selectedOil.longDescription}</p>
+                    <h4 className="font-semibold mb-2">Key Benefits:</h4>
+                    <ul className="space-y-2">
+                      {selectedOil.benefits.map((benefit, i) => (
+                        <li key={i} className="flex items-start gap-2">
+                          <Check className="h-4 w-4 mt-1 text-primary shrink-0" />
+                          <span className="text-sm">{benefit}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </ScrollArea>
+              </div>
             </>
           )}
         </DialogContent>
