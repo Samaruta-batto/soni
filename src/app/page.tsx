@@ -4,7 +4,6 @@ import { Hero } from '@/components/sections/hero';
 import { About } from '@/components/sections/about';
 import { Products } from '@/components/sections/products';
 import { Commitment } from '@/components/sections/commitment';
-import { AiRecommender } from '@/components/sections/ai-recommender';
 import { Contact } from '@/components/sections/contact';
 
 export default function Home() {
@@ -16,7 +15,6 @@ export default function Home() {
         <About />
         <Products />
         <Commitment />
-        <AiRecommender />
         <Contact />
       </main>
       <Footer />
