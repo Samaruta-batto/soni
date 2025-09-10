@@ -6,15 +6,17 @@ import { Leaf, Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { cn } from '@/lib/utils';
+import { usePathname } from 'next/navigation';
 
 const navItems = [
-  { href: '#about', label: 'About Us' },
-  { href: '#products', label: 'Our Products' },
-  { href: '#contact', label: 'Contact Us' },
+  { href: '/about', label: 'About Us' },
+  { href: '/products', label: 'Our Products' },
+  { href: '/contact', label: 'Contact Us' },
 ];
 
 export function Header() {
   const [isSheetOpen, setSheetOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -29,7 +31,10 @@ export function Header() {
             <Link
               key={item.label}
               href={item.href}
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+              className={cn(
+                'text-sm font-medium transition-colors hover:text-foreground',
+                pathname === item.href ? 'text-foreground' : 'text-muted-foreground'
+              )}
             >
               {item.label}
             </Link>
@@ -57,7 +62,10 @@ export function Header() {
                     <Link
                       key={item.label}
                       href={item.href}
-                      className="text-lg font-medium"
+                      className={cn(
+                        'text-lg font-medium',
+                        pathname === item.href ? 'text-primary' : ''
+                      )}
                       onClick={() => setSheetOpen(false)}
                     >
                       {item.label}
