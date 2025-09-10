@@ -6,7 +6,7 @@ export default function ProductsPage() {
   return (
     <div className="flex min-h-dvh flex-col bg-background">
       <Header />
-      <main className="flex-1">
+      <main>
         <Products />
       </main>
       <Footer />

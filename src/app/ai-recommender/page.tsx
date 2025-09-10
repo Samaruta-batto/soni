@@ -6,7 +6,7 @@ export default function AiRecommenderPage() {
   return (
     <div className="flex min-h-dvh flex-col bg-background">
       <Header />
-      <main className="flex-1">
+      <main>
         <AiRecommender />
       </main>
       <Footer />
