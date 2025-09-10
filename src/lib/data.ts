@@ -1,3 +1,4 @@
+
 export type Oil = {
   id: string;
   name: string;
@@ -24,7 +25,7 @@ export const products: Oil[] = [
       'Combats bacteria in skincare and hygiene products with antimicrobial action.',
       'Promotes healthy scalp circulation to support hair growth and reduce itchiness.',
     ],
-    imageHint: 'peppermint leaves',
+    imageHint: 'oil peppermint',
   },
   {
     id: 'essential-2',
@@ -40,7 +41,7 @@ export const products: Oil[] = [
       'Enhances concentration and clarity through its pleasant, invigorating scent.',
       'Adds a crisp fragrance to natural personal care and home products.',
     ],
-    imageHint: 'spearmint plant',
+    imageHint: 'oil spearmint',
   },
   {
     id: 'essential-3',
@@ -56,7 +57,7 @@ export const products: Oil[] = [
       'Reduces muscular tension and discomfort in wellness and massage applications.',
       'Purifies and balances oily skin, making it ideal for targeted skincare solutions.',
     ],
-    imageHint: 'basil leaves',
+    imageHint: 'oil basil',
   },
   {
     id: 'essential-4',
@@ -72,7 +73,7 @@ export const products: Oil[] = [
       'Reduces signs of aging, supporting skin elasticity and firmness.',
       'Adds a rosy, elegant note to fine fragrance and cosmetic creations.',
     ],
-    imageHint: 'geranium flower',
+    imageHint: 'oil geranium',
   },
   {
     id: 'essential-5',
@@ -88,7 +89,7 @@ export const products: Oil[] = [
       'Adds richness and depth as a base note in high-end perfumery and cologne.',
       'Stabilizes fragrance blends, enhancing longevity and complexity in aroma profiles.',
     ],
-    imageHint: 'vetiver grass',
+    imageHint: 'oil vetiver',
   },
   {
     id: 'essential-6',
@@ -104,7 +105,7 @@ export const products: Oil[] = [
       'Supports immune function, making it a staple in seasonal wellness applications.',
       'Fights odor and bacteria, perfect for hygiene and household cleaning blends.',
     ],
-    imageHint: 'eucalyptus leaves',
+    imageHint: 'oil eucalyptus',
   },
   {
     id: 'essential-7',
@@ -120,7 +121,7 @@ export const products: Oil[] = [
       'Improves skin tone and texture, ideal for oily and acne-prone formulations.',
       'Freshens ambiance and energizes mood, perfect for aromatherapy and home care.',
     ],
-    imageHint: 'rosemary sprig',
+    imageHint: 'oil rosemary',
   },
   {
     id: 'essential-8',
@@ -136,7 +137,7 @@ export const products: Oil[] = [
       'Freshens breath and oral care, suitable for minty herbal formulations.',
       'Promotes respiratory wellness, often used in chest rubs and inhalants.',
     ],
-    imageHint: 'caraway seeds',
+    imageHint: 'oil caraway',
   },
   {
     id: 'essential-9',
@@ -152,7 +153,7 @@ export const products: Oil[] = [
       'Offers antimicrobial protection, helping preserve natural care products.',
       'Adds warmth and sweetness to flavoring and fragrance compositions.',
     ],
-    imageHint: 'star anise',
+    imageHint: 'oil anise',
   },
   {
     id: 'essential-10',
@@ -168,7 +169,7 @@ export const products: Oil[] = [
       'Enhances circulation and detoxification, used in wellness applications.',
       'Adds a refreshing top noteto fragrance and aromatherapy blends.',
     ],
-    imageHint: 'lemongrass stalk',
+    imageHint: 'oil lemongrass',
   },
   {
     id: 'essential-11',
@@ -184,7 +185,7 @@ export const products: Oil[] = [
       'Acts as a natural antioxidant, protecting skin from environmental stressors.',
       'Fights bacteria and promotes hygiene, suitable for personal care products.',
     ],
-    imageHint: 'black peppercorns',
+    imageHint: 'oil blackpepper',
   },
   {
     id: 'essential-12',
@@ -200,7 +201,7 @@ export const products: Oil[] = [
       'Strengthens immune defenses, common in seasonal wellness blends.',
       'Adds a clean, medicinal top note to natural formulations and aromatic blends.',
     ],
-    imageHint: 'tea tree',
+    imageHint: 'oil teatree',
   },
   {
     id: 'essential-13',
@@ -216,7 +217,7 @@ export const products: Oil[] = [
       'Promotes relaxation in aromatherapy blends.',
       'Perfect for candles, sprays, and skincare with a refreshing twist.',
     ],
-    imageHint: 'citronella grass',
+    imageHint: 'oil citronella',
   },
   {
     id: 'essential-14',
@@ -232,7 +233,7 @@ export const products: Oil[] = [
       'Calms the mind and promotes emotional balance in aromatherapy.',
       'Versatile ingredient for creams, serums, and wellness blends.',
     ],
-    imageHint: 'pink flowers',
+    imageHint: 'oil palmarosa',
   },
   {
     id: 'essential-15',
@@ -242,7 +243,7 @@ export const products: Oil[] = [
     longDescription:
       'Mentha Arvensis, also known as Corn Mint or Wild Mint, is a potent essential oil with a strong, sharp, and minty fragrance. It is rich in menthol, which provides a cooling sensation and has various therapeutic uses. It is widely used for its uplifting and refreshing properties.',
     benefits: ['Perfect for aromatherapy', 'Ideal for personal care products', 'Also known as Menthol Mint'],
-    imageHint: 'mint leaves',
+    imageHint: 'oil mint',
   },
 
   // Carrier Oils
@@ -260,7 +261,7 @@ export const products: Oil[] = [
       'Supports cognitive function and overall vitality.',
       'Ideal for supplements, serums, and therapeutic blends.',
     ],
-    imageHint: 'black seeds',
+    imageHint: 'oil blackseed',
   },
   {
     id: 'carrier-2',
@@ -276,7 +277,7 @@ export const products: Oil[] = [
       'Packed with antioxidants to combat premature aging.',
       'Ideal for sensitive, dry, and mature skin formulations.',
     ],
-    imageHint: 'rose hips',
+    imageHint: 'oil rosehip',
   },
   {
     id: 'carrier-3',
@@ -292,7 +293,7 @@ export const products: Oil[] = [
       'Softens hair and adds shine, widely used in premium haircare formulations.',
       'Highly stable and versatile, perfect for creams, serums, and balms.',
     ],
-    imageHint: 'jojoba nuts',
+    imageHint: 'oil jojoba',
   },
   {
     id: 'carrier-4',
@@ -308,7 +309,7 @@ export const products: Oil[] = [
       'Protects against environmental damage and premature aging.',
       'Ideal for high-performance formulations in skincare, haircare, and cosmetics.',
     ],
-    imageHint: 'argan nuts',
+    imageHint: 'oil argan',
   },
   {
     id: 'carrier-5',
@@ -324,7 +325,7 @@ export const products: Oil[] = [
       'Supports skin elasticity and promotes a healthy glow.',
       'Stable and easily absorbed, perfect for creams, oils, and therapeutic formulations.',
     ],
-    imageHint: 'sesame seeds',
+    imageHint: 'oil sesame',
   },
 
   // SCF CO2 Oils & Oleoresins
@@ -342,7 +343,7 @@ export const products: Oil[] = [
       'Enhances skin tone and promotes a radiant complexion.',
       'Ideal for use in massage oils, wellness blends, and revitalizing skincare.',
     ],
-    imageHint: 'ginger root',
+    imageHint: 'oil ginger',
   },
   {
     id: 'scf-2',
@@ -358,7 +359,7 @@ export const products: Oil[] = [
       'Promotes hormonal balance in wellness and grooming formulations.',
       'Suitable for targeted use in serums, oils, and scalp treatments.',
     ],
-    imageHint: 'saw palmetto',
+    imageHint: 'oil saw palmetto',
   },
   {
     id: 'scf-3',
@@ -374,7 +375,7 @@ export const products: Oil[] = [
       'Soothes inflammation and supports skin barrier repair.',
       'Ideal for wellness blends targeting hormonal balance and digestive comfort.',
     ],
-    imageHint: 'fenugreek seeds',
+    imageHint: 'oil fenugreek',
   },
   {
     id: 'scf-4',
@@ -390,7 +391,7 @@ export const products: Oil[] = [
       'Enhances efficacy of balms and oils with concentrated capsaicinoid content.',
       'Suitable for pharmaceutical applications requiring targeted heat therapy.',
     ],
-    imageHint: 'chili peppers',
+    imageHint: 'oil capsicum',
   },
   {
     id: 'scf-5',
@@ -406,7 +407,7 @@ export const products: Oil[] = [
       'Supports joint and muscle relief in wellness and massage blends.',
       'Acts as a natural antimicrobial agent in skincare and personal care products.',
     ],
-    imageHint: 'turmeric root',
+    imageHint: 'oil turmeric',
   },
   {
     id: 'scf-6',
@@ -422,6 +423,6 @@ export const products: Oil[] = [
       'Enhances flavor with mild pungency in culinary and nutraceutical products.',
       'Supports circulation and detoxification in topical wellness blends.',
     ],
-    imageHint: 'paprika powder',
+    imageHint: 'oil paprika',
   },
 ];
