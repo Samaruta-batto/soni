@@ -24,7 +24,7 @@ const OilRecommendationOutputSchema = z.object({
   recommendations: z
     .array(z.string())
     .describe('A list of product IDs for essential oils that are suitable for the user-specified needs.'),
-  message: z.string().describe('A friendly message explaining the recommendations.'),
+  message: z.string().describe('A friendly message explaining the recommendations. Do not include the product IDs in this message.'),
 });
 export type OilRecommendationOutput = z.infer<typeof OilRecommendationOutputSchema>;
 
@@ -40,8 +40,9 @@ const oilRecommendationPrompt = ai.definePrompt({
   output: { schema: OilRecommendationOutputSchema },
   prompt: `You are an AI assistant specializing in essential oil recommendations. Based on the user's specified needs, provide a list of suitable essential oil product IDs and a friendly message explaining why you chose them.
 
-You can only recommend products from the following list. Output only the 'id' of the product.
+You can only recommend products from the following list. Output only the 'id' of the product in the 'recommendations' field.
 Do not recommend products that are not on this list.
+Do not include the product IDs in the 'message' field.
 
 Available Products:
 ${products.map(p => `- ${p.name} (id: ${p.id})`).join('\n')}
