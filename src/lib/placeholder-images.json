@@ -1,3 +1,41 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "hero-background",
+      "description": "Lush green leaves with water droplets, representing nature and purity.",
+      "imageUrl": "https://picsum.photos/seed/100/1920/1080",
+      "imageHint": "green leaves"
+    },
+    {
+      "id": "section-about",
+      "description": "A collection of small glass bottles with droppers, containing various essential oils, arranged on a rustic wooden surface.",
+      "imageUrl": "https://picsum.photos/seed/101/550/550",
+      "imageHint": "essential oils"
+    },
+    { "id": "essential-1", "description": "Mentha Arvensis", "imageUrl": "https://picsum.photos/seed/1/400/300", "imageHint": "mint leaves" },
+    { "id": "essential-2", "description": "Peppermint Oil", "imageUrl": "https://picsum.photos/seed/2/400/300", "imageHint": "peppermint leaves" },
+    { "id": "essential-3", "description": "Spearmint Oil", "imageUrl": "https://picsum.photos/seed/3/400/300", "imageHint": "spearmint plant" },
+    { "id": "essential-4", "description": "Lemongrass Oil", "imageUrl": "https://picsum.photos/seed/4/400/300", "imageHint": "lemongrass stalk" },
+    { "id": "essential-5", "description": "Palmarosa Oil", "imageUrl": "https://picsum.photos/seed/5/400/300", "imageHint": "pink flowers" },
+    { "id": "essential-6", "description": "Citronella Oil", "imageUrl": "https://picsum.photos/seed/6/400/300", "imageHint": "citronella grass" },
+    { "id": "essential-7", "description": "Vetiver Oil", "imageUrl": "https://picsum.photos/seed/7/400/300", "imageHint": "vetiver grass" },
+    { "id": "essential-8", "description": "Geranium Oil", "imageUrl": "https://picsum.photos/seed/8/400/300", "imageHint": "geranium flower" },
+    { "id": "essential-9", "description": "Basil Oil", "imageUrl": "https://picsum.photos/seed/9/400/300", "imageHint": "basil leaves" },
+    { "id": "essential-10", "description": "Eucalyptus Oil", "imageUrl": "https://picsum.photos/seed/10/400/300", "imageHint": "eucalyptus leaves" },
+    { "id": "essential-11", "description": "Rosemary Oil", "imageUrl": "https://picsum.photos/seed/11/400/300", "imageHint": "rosemary sprig" },
+    { "id": "essential-12", "description": "Caraway Oil", "imageUrl": "https://picsum.photos/seed/12/400/300", "imageHint": "caraway seeds" },
+    { "id": "essential-13", "description": "Anise Oil", "imageUrl": "https://picsum.photos/seed/13/400/300", "imageHint": "star anise" },
+    { "id": "essential-14", "description": "Blackpepper Oil", "imageUrl": "https://picsum.photos/seed/14/400/300", "imageHint": "black peppercorns" },
+    { "id": "essential-15", "description": "Tea Tree Oil", "imageUrl": "https://picsum.photos/seed/15/400/300", "imageHint": "tea tree" },
+    { "id": "carrier-1", "description": "Blackseed Oil", "imageUrl": "https://picsum.photos/seed/16/400/300", "imageHint": "black seeds" },
+    { "id": "carrier-2", "description": "Rosehip Seed Oil", "imageUrl": "https://picsum.photos/seed/17/400/300", "imageHint": "rose hips" },
+    { "id": "carrier-3", "description": "Jojoba Oil", "imageUrl": "https://picsum.photos/seed/18/400/300", "imageHint": "jojoba nuts" },
+    { "id": "carrier-4", "description": "Sesame Oil", "imageUrl": "https://picsum.photos/seed/19/400/300", "imageHint": "sesame seeds" },
+    { "id": "scf-1", "description": "Ginger Oil", "imageUrl": "https://picsum.photos/seed/20/400/300", "imageHint": "ginger root" },
+    { "id": "scf-2", "description": "Saw Palmetto Oil", "imageUrl": "https://picsum.photos/seed/21/400/300", "imageHint": "saw palmetto" },
+    { "id": "scf-3", "description": "Fenugreek Seed Oil", "imageUrl": "https://picsum.photos/seed/22/400/300", "imageHint": "fenugreek seeds" },
+    { "id": "scf-4", "description": "Capsicum Oleoresin", "imageUrl": "https://picsum.photos/seed/23/400/300", "imageHint": "chili peppers" },
+    { "id": "scf-5", "description": "Turmeric Oil", "imageUrl": "https://picsum.photos/seed/24/400/300", "imageHint": "turmeric root" },
+    { "id": "scf-6", "description": "Paprika Oleoresin", "imageUrl": "https://picsum.photos/seed/25/400/300", "imageHint": "paprika powder" }
+  ]
 }

@@ -1,0 +1,124 @@
+'use client';
+
+import Image from 'next/image';
+import { useState } from 'react';
+import { products, Oil } from '@/lib/data';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from '@/components/ui/dialog';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Badge } from '@/components/ui/badge';
+import { Check } from 'lucide-react';
+
+const essentialOils = products.filter((p) => p.category === 'essential');
+const carrierOils = products.filter((p) => p.category === 'carrier');
+const scfOils = products.filter((p) => p.category === 'scf');
+
+export function Products() {
+  const [selectedOil, setSelectedOil] = useState<Oil | null>(null);
+
+  const ProductCard = ({ oil }: { oil: Oil }) => {
+    const productImage = PlaceHolderImages.find((img) => img.id === oil.id);
+    return (
+      <Card
+        className="cursor-pointer overflow-hidden transition-all hover:shadow-lg hover:-translate-y-1"
+        onClick={() => setSelectedOil(oil)}
+      >
+        <CardHeader className="p-0">
+          <div className="relative aspect-4/3">
+            {productImage && (
+              <Image
+                src={productImage.imageUrl}
+                alt={oil.name}
+                fill
+                className="object-cover"
+                data-ai-hint={productImage.imageHint}
+              />
+            )}
+          </div>
+        </CardHeader>
+        <CardContent className="p-4">
+          <h3 className="font-semibold">{oil.name}</h3>
+          <p className="text-sm text-muted-foreground">{oil.shortDescription}</p>
+        </CardContent>
+      </Card>
+    );
+  };
+  
+  const ProductGrid = ({ oils }: { oils: Oil[] }) => (
+    <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+      {oils.map((oil) => (
+        <ProductCard key={oil.id} oil={oil} />
+      ))}
+    </div>
+  );
+
+  return (
+    <>
+      <section id="products" className="w-full py-16 md:py-24 lg:py-32">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="mb-12 text-center">
+            <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+              Our Products
+            </h2>
+            <p className="mx-auto mt-4 max-w-[700px] text-muted-foreground md:text-xl">
+              Explore our diverse range of pure and natural oils, crafted for your well-being.
+            </p>
+          </div>
+
+          <Tabs defaultValue="essential" className="w-full">
+            <TabsList className="mx-auto mb-8 grid w-full max-w-md grid-cols-3">
+              <TabsTrigger value="essential">Essential Oils</TabsTrigger>
+              <TabsTrigger value="carrier">Carrier Oils</TabsTrigger>
+              <TabsTrigger value="scf">SCF CO₂ & Oleoresins</TabsTrigger>
+            </TabsList>
+            <TabsContent value="essential">
+              <ProductGrid oils={essentialOils} />
+            </TabsContent>
+            <TabsContent value="carrier">
+              <ProductGrid oils={carrierOils} />
+            </TabsContent>
+            <TabsContent value="scf">
+               <ProductGrid oils={scfOils} />
+            </TabsContent>
+          </Tabs>
+        </div>
+      </section>
+
+      <Dialog open={!!selectedOil} onOpenChange={(open) => !open && setSelectedOil(null)}>
+        <DialogContent className="sm:max-w-[425px]">
+          {selectedOil && (
+            <>
+              <DialogHeader>
+                <DialogTitle className="font-headline text-2xl">{selectedOil.name}</DialogTitle>
+                <DialogDescription>{selectedOil.shortDescription}</DialogDescription>
+              </DialogHeader>
+              <div className="py-4">
+                <h4 className="font-semibold mb-2">Key Benefits:</h4>
+                <ul className="space-y-2">
+                  {selectedOil.benefits.map((benefit, i) => (
+                    <li key={i} className="flex items-start gap-2">
+                      <Check className="h-4 w-4 mt-1 text-primary shrink-0" />
+                      <span>{benefit}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
+    </>
+  );
+}
