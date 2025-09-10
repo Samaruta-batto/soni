@@ -32,17 +32,17 @@ export function Products() {
     const productImage = PlaceHolderImages.find((img) => img.id === oil.id);
     return (
       <Card
-        className="cursor-pointer overflow-hidden transition-all hover:shadow-lg hover:-translate-y-1"
+        className="cursor-pointer overflow-hidden transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-2"
         onClick={() => setSelectedOil(oil)}
       >
         <CardHeader className="p-0">
-          <div className="relative aspect-4/3">
+          <div className="relative aspect-4/3 overflow-hidden">
             {productImage && (
               <Image
                 src={productImage.imageUrl}
                 alt={oil.name}
                 fill
-                className="object-cover"
+                className="object-cover transition-transform duration-300 group-hover:scale-105"
                 data-ai-hint={productImage.imageHint}
               />
             )}

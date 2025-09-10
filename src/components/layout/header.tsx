@@ -21,7 +21,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center justify-between">
-        <Link href="/" className="flex items-center gap-2">
+        <Link href="/" className="flex items-center gap-2 transition-transform duration-300 hover:scale-105">
           <Leaf className="h-6 w-6 text-primary" />
           <span className="font-headline text-xl font-bold">Soni Exim</span>
         </Link>
@@ -32,8 +32,9 @@ export function Header() {
               key={item.label}
               href={item.href}
               className={cn(
-                'text-sm font-medium transition-colors hover:text-foreground',
-                pathname === item.href ? 'text-foreground' : 'text-muted-foreground'
+                'text-sm font-medium relative transition-colors duration-300 hover:text-foreground',
+                pathname === item.href ? 'text-foreground' : 'text-muted-foreground',
+                'after:absolute after:bottom-[-2px] after:left-0 after:h-[2px] after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full'
               )}
             >
               {item.label}
@@ -63,8 +64,8 @@ export function Header() {
                       key={item.label}
                       href={item.href}
                       className={cn(
-                        'text-lg font-medium',
-                        pathname === item.href ? 'text-primary' : ''
+                        'text-lg font-medium transition-colors duration-300',
+                        pathname === item.href ? 'text-primary' : 'hover:text-primary'
                       )}
                       onClick={() => setSheetOpen(false)}
                     >
