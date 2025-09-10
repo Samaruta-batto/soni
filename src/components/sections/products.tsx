@@ -117,7 +117,7 @@ export function Products() {
                   <DialogTitle className="font-headline text-2xl">{selectedOil.name}</DialogTitle>
                   <DialogDescription>{selectedOil.shortDescription}</DialogDescription>
                 </DialogHeader>
-                <ScrollArea className="max-h-[45vh] mt-4">
+                <ScrollArea className="h-[45vh] mt-4">
                   <div className="py-4 pr-6">
                     <p className="text-sm text-muted-foreground mb-4">{selectedOil.longDescription}</p>
                     <h4 className="font-semibold mb-2">Key Benefits:</h4>
