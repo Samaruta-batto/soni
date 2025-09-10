@@ -20,6 +20,7 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Badge } from '@/components/ui/badge';
 import { Check } from 'lucide-react';
+import { ScrollArea } from '../ui/scroll-area';
 
 const essentialOils = products.filter((p) => p.category === 'essential');
 const carrierOils = products.filter((p) => p.category === 'carrier');
@@ -97,24 +98,27 @@ export function Products() {
       </section>
 
       <Dialog open={!!selectedOil} onOpenChange={(open) => !open && setSelectedOil(null)}>
-        <DialogContent className="sm:max-w-[425px]">
+        <DialogContent className="sm:max-w-lg">
           {selectedOil && (
             <>
               <DialogHeader>
                 <DialogTitle className="font-headline text-2xl">{selectedOil.name}</DialogTitle>
                 <DialogDescription>{selectedOil.shortDescription}</DialogDescription>
               </DialogHeader>
-              <div className="py-4">
-                <h4 className="font-semibold mb-2">Key Benefits:</h4>
-                <ul className="space-y-2">
-                  {selectedOil.benefits.map((benefit, i) => (
-                    <li key={i} className="flex items-start gap-2">
-                      <Check className="h-4 w-4 mt-1 text-primary shrink-0" />
-                      <span>{benefit}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              <ScrollArea className="max-h-[70vh]">
+                <div className="py-4 pr-6">
+                  <p className="text-sm text-muted-foreground mb-4">{selectedOil.longDescription}</p>
+                  <h4 className="font-semibold mb-2">Key Benefits:</h4>
+                  <ul className="space-y-2">
+                    {selectedOil.benefits.map((benefit, i) => (
+                      <li key={i} className="flex items-start gap-2">
+                        <Check className="h-4 w-4 mt-1 text-primary shrink-0" />
+                        <span className="text-sm">{benefit}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </ScrollArea>
             </>
           )}
         </DialogContent>
