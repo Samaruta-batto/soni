@@ -38,13 +38,14 @@ export function AiRecommender() {
         onClick={() => setSelectedOil(oil)}
       >
         <CardHeader className="p-0">
-          <div className="relative aspect-4/3 w-full transition-transform duration-300 group-hover:scale-105">
+          <div className="relative aspect-4/3 w-full overflow-hidden transition-transform duration-300 group-hover:scale-105">
             {productImage && (
               <Image
                 src={productImage.imageUrl}
                 alt={oil.name}
-                fill
-                className="object-cover"
+                width={400}
+                height={300}
+                className="h-full w-full object-cover"
                 data-ai-hint={productImage.imageHint}
               />
             )}
