@@ -4,13 +4,13 @@
     {
       "id": "hero-background",
       "description": "Lush green leaves with water droplets, representing nature and purity.",
-      "imageUrl": "/banner.jpg",
+      "imageUrl": "/home/user/studio/public/images/banner.jpg",
       "imageHint": "green leaves"
     },
     {
       "id": "section-about",
       "description": "A collection of small glass bottles with droppers, containing various essential oils, arranged on a rustic wooden surface.",
-      "imageUrl": "/images/section-about.jpg",
+      "imageUrl": "/home/user/studio/public/images/banner.jpg",
       "imageHint": "essential oils"
     },
     { "id": "essential-1", "description": "Peppermint Oil", "imageUrl": "/images/peppermint-oil.jpg", "imageHint": "peppermint oil bottle" },
