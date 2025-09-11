@@ -34,18 +34,15 @@ export function Products() {
         onClick={() => setSelectedOil(oil)}
       >
         <CardHeader className="p-0">
-          <div className="relative aspect-4/3 overflow-hidden bg-muted/20">
-            {productImage && (
-              <Image
-                src={productImage.imageUrl}
-                alt={oil.name}
-                width={400}
-                height={300}
-                className="h-full w-full object-contain transition-transform duration-300 group-hover:scale-105"
-                data-ai-hint={productImage.imageHint}
-              />
-            )}
-          </div>
+          <div
+            className="aspect-4/3 w-full bg-contain bg-no-repeat bg-center transition-transform duration-300 group-hover:scale-105"
+            style={{ 
+              backgroundImage: productImage ? `url(${productImage.imageUrl})` : 'none',
+              backgroundColor: 'hsl(var(--muted))'
+            }}
+            role="img"
+            aria-label={oil.name}
+          />
         </CardHeader>
         <CardContent className="p-4">
           <h3 className="font-semibold">{oil.name}</h3>
