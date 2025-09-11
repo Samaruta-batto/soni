@@ -34,14 +34,14 @@ export function Products() {
         onClick={() => setSelectedOil(oil)}
       >
         <CardHeader className="p-0">
-          <div className="relative aspect-4/3 overflow-hidden">
+          <div className="relative aspect-4/3 overflow-hidden bg-muted/20">
             {productImage && (
               <Image
                 src={productImage.imageUrl}
                 alt={oil.name}
                 width={400}
                 height={300}
-                className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                className="h-full w-full object-contain transition-transform duration-300 group-hover:scale-105"
                 data-ai-hint={productImage.imageHint}
               />
             )}
@@ -107,12 +107,12 @@ export function Products() {
                     src={selectedOilImage.imageUrl}
                     alt={selectedOil.name}
                     fill
-                    className="object-cover w-full"
+                    className="object-contain w-full"
                     data-ai-hint={selectedOilImage.imageHint}
                   />
                 </div>
               )}
-              <div className="p-6 flex-1 flex flex-col">
+              <div className="p-6 flex-1 flex flex-col min-h-0">
                 <DialogHeader className="pb-2 flex-shrink-0">
                   <DialogTitle className="font-headline text-2xl">{selectedOil.name}</DialogTitle>
                   <DialogDescription>{selectedOil.shortDescription}</DialogDescription>
