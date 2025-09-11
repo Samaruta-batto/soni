@@ -17,7 +17,6 @@ import {
   DialogHeader,
   DialogTitle,
 } from '@/components/ui/dialog';
-import { ScrollArea } from '@/components/ui/scroll-area';
 import { Check } from 'lucide-react';
 
 export function AiRecommender() {
@@ -44,7 +43,8 @@ export function AiRecommender() {
               <Image
                 src={productImage.imageUrl}
                 alt={oil.name}
-                fill
+                width={400}
+                height={300}
                 className="object-cover transition-transform duration-300 group-hover:scale-105"
                 data-ai-hint={productImage.imageHint}
               />
@@ -147,7 +147,7 @@ export function AiRecommender() {
     </section>
 
     <Dialog open={!!selectedOil} onOpenChange={(open) => !open && setSelectedOil(null)}>
-      <DialogContent className="sm:max-w-lg p-0 flex flex-col max-h-[90vh]">
+        <DialogContent className="sm:max-w-lg p-0 flex flex-col max-h-[90vh] overflow-y-auto">
           {selectedOil && (
             <>
               {selectedOilImage && (
@@ -155,29 +155,30 @@ export function AiRecommender() {
                   <Image
                     src={selectedOilImage.imageUrl}
                     alt={selectedOil.name}
-                    fill
-                    className="object-cover"
+                    width={600}
+                    height={400}
+                    className="object-cover w-full"
                     data-ai-hint={selectedOilImage.imageHint}
                   />
                 </div>
               )}
-              <div className="p-6 pb-2 flex-shrink-0">
-                <DialogHeader>
+              <div className="p-6 flex-1 flex flex-col">
+                <DialogHeader className="pb-2 flex-shrink-0">
                   <DialogTitle className="font-headline text-2xl">{selectedOil.name}</DialogTitle>
                   <DialogDescription>{selectedOil.shortDescription}</DialogDescription>
                 </DialogHeader>
-              </div>
-              <div className="px-6 pb-6 overflow-y-auto">
-                <p className="text-sm text-muted-foreground mb-4">{selectedOil.longDescription}</p>
-                <h4 className="font-semibold mb-2">Key Benefits:</h4>
-                <ul className="space-y-2">
-                  {selectedOil.benefits.map((benefit, i) => (
-                    <li key={i} className="flex items-start gap-2">
-                      <Check className="h-4 w-4 mt-1 text-primary shrink-0" />
-                      <span className="text-sm">{benefit}</span>
-                    </li>
-                  ))}
-                </ul>
+                <div className="flex-1 overflow-y-auto pr-2">
+                  <p className="text-sm text-muted-foreground mb-4">{selectedOil.longDescription}</p>
+                  <h4 className="font-semibold mb-2">Key Benefits:</h4>
+                  <ul className="space-y-2">
+                    {selectedOil.benefits.map((benefit, i) => (
+                      <li key={i} className="flex items-start gap-2">
+                        <Check className="h-4 w-4 mt-1 text-primary shrink-0" />
+                        <span className="text-sm">{benefit}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             </>
           )}
