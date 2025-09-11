@@ -7,7 +7,7 @@ export function Footer() {
         <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
           <div className="flex items-center gap-2">
             <Leaf className="h-6 w-6 text-primary" />
-            <span className="font-headline text-xl font-bold">Soni Exim</span>
+            <span className="font-logo text-xl font-bold tracking-wider">Soni Exim</span>
           </div>
           <p className="text-sm text-muted-foreground">
             &copy; {new Date().getFullYear()} Soni Exim. All rights reserved.

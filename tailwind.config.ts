@@ -21,6 +21,7 @@ const config = {
       fontFamily: {
         body: ['"PT Sans"', 'sans-serif'],
         headline: ['"Playfair Display"', 'serif'],
+        logo: ['"Cinzel"', 'serif'],
       },
       colors: {
         border: 'hsl(var(--border))',
