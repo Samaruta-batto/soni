@@ -155,8 +155,7 @@ export function AiRecommender() {
                   <Image
                     src={selectedOilImage.imageUrl}
                     alt={selectedOil.name}
-                    width={600}
-                    height={400}
+                    fill
                     className="object-cover w-full"
                     data-ai-hint={selectedOilImage.imageHint}
                   />
