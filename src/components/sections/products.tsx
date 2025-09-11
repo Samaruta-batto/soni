@@ -41,7 +41,7 @@ export function Products() {
                 alt={oil.name}
                 width={400}
                 height={300}
-                className="object-cover transition-transform duration-300 group-hover:scale-105"
+                className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
                 data-ai-hint={productImage.imageHint}
               />
             )}
