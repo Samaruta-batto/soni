@@ -110,12 +110,13 @@ export function About() {
                 alt={aboutImage.description}
                 width={550}
                 height={550}
-                className="mx-auto aspect-square overflow-hidden rounded-xl object-cover shadow-2xl"
+                className="mx-auto aspect-square overflow-hidden rounded-xl object-cover shadow-2xl transition-opacity duration-500 ease-in-out"
                 data-ai-hint={aboutImage.imageHint}
+                onLoadingComplete={(image) => image.classList.remove('opacity-0')}
               />
             )}
           </div>
-          <div className="flex flex-col justify-center space-y-6 animate-fade-in-up">
+          <div className="flex flex-col justify-center space-y-6">
             <div className="animate-fade-in-up">
               <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
                 About Soni Exim

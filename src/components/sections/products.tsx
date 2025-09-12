@@ -1,3 +1,4 @@
+
 'use client';
 
 import Image from 'next/image';
@@ -48,8 +49,9 @@ export function Products() {
                 alt={oil.name}
                 width={400}
                 height={300}
-                className="h-full w-full object-cover"
+                className="h-full w-full object-cover transition-opacity duration-500 ease-in-out opacity-0"
                 data-ai-hint={productImage.imageHint}
+                onLoadingComplete={(image) => image.classList.remove('opacity-0')}
               />
             )}
           </div>
@@ -121,8 +123,9 @@ export function Products() {
                     src={selectedOilImage.imageUrl}
                     alt={selectedOil.name}
                     fill
-                    className="object-contain w-full"
+                    className="object-contain w-full transition-opacity duration-500 ease-in-out opacity-0"
                     data-ai-hint={selectedOilImage.imageHint}
+                    onLoadingComplete={(image) => image.classList.remove('opacity-0')}
                   />
                 </div>
               )}

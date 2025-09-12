@@ -1,3 +1,4 @@
+
 import Link from 'next/link';
 import Image from 'next/image';
 import { Card } from '@/components/ui/card';
@@ -16,8 +17,9 @@ export function ContactCard() {
             src={cardBgImage.imageUrl}
             alt={cardBgImage.description}
             fill
-            className="object-cover transition-transform duration-500 group-hover:scale-110"
+            className="object-cover transition-transform duration-500 group-hover:scale-110 opacity-0"
             data-ai-hint={cardBgImage.imageHint}
+            onLoadingComplete={(image) => image.classList.remove('opacity-0')}
           />
         )}
         <div className="absolute inset-0 bg-black/50 transition-all duration-500 group-hover:bg-black/60" />

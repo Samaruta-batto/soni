@@ -1,3 +1,4 @@
+
 'use client';
 
 import Image from 'next/image';
@@ -43,7 +44,7 @@ export function Hero() {
             src={heroImage.imageUrl}
             alt={heroImage.description}
             fill
-            className="h-full w-full object-cover object-center"
+            className="h-full w-full object-cover object-center transition-all duration-500 ease-in-out"
             data-ai-hint={heroImage.imageHint}
             priority
           />
