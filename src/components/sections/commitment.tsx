@@ -1,6 +1,7 @@
 
 'use client';
 
+import * as React from 'react';
 import {
   Carousel,
   CarouselContent,
@@ -32,6 +33,10 @@ const testimonials = [
 ];
 
 export function Commitment() {
+  const plugin = React.useRef(
+    Autoplay({ delay: 5000, stopOnInteraction: true })
+  );
+
   return (
     <section id="commitment" className="w-full py-16 md:py-24 lg:py-32 bg-accent/10">
       <div className="container mx-auto grid items-center justify-center gap-8 px-4 text-center md:px-6">
@@ -51,13 +56,10 @@ export function Commitment() {
               align: 'start',
               loop: true,
             }}
-            plugins={[
-              Autoplay({
-                delay: 5000,
-                stopOnInteraction: true,
-              }),
-            ]}
+            plugins={[plugin.current]}
             className="w-full"
+            onMouseEnter={plugin.current.stop}
+            onMouseLeave={plugin.current.reset}
           >
             <CarouselContent>
               {testimonials.map((testimonial, index) => (
