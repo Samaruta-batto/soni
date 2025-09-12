@@ -20,6 +20,16 @@ export function Header() {
   const [isSheetOpen, setSheetOpen] = useState(false);
   const pathname = usePathname();
 
+  const Logo = () => (
+    <div className="flex items-center gap-2 rounded-md bg-accent p-2">
+      <Leaf className="h-6 w-6 text-primary" />
+      <div className="flex flex-col leading-none">
+        <span className="font-logo text-sm font-bold tracking-wider">SONI</span>
+        <span className="font-logo text-sm font-bold tracking-wider">EXIM</span>
+      </div>
+    </div>
+  );
+
   return (
     <header className="sticky top-0 z-50 w-full bg-background/80 backdrop-blur-sm">
       <div className="container flex h-16 items-center">
@@ -34,9 +44,8 @@ export function Header() {
             <SheetContent side="left" className="bg-background/90">
               <div className="flex h-full flex-col">
                 <div className="flex items-center justify-between border-b pb-4">
-                  <Link href="/" className="flex items-center gap-2" onClick={() => setSheetOpen(false)}>
-                    <Leaf className="h-6 w-6 text-primary" />
-                    <span className="font-logo text-xl font-bold tracking-wider">Soni Exim</span>
+                  <Link href="/" onClick={() => setSheetOpen(false)}>
+                    <Logo />
                   </Link>
                 </div>
                 <nav className="mt-6 flex flex-col gap-6">
@@ -71,9 +80,8 @@ export function Header() {
         </div>
 
         <div className="flex flex-1 items-center justify-start">
-          <Link href="/" className="flex items-center gap-2 transition-transform duration-300 hover:scale-105">
-            <Leaf className="h-6 w-6 text-primary" />
-            <span className="font-logo text-xl font-bold tracking-wider">Soni Exim</span>
+          <Link href="/" className="transition-transform duration-300 hover:scale-105">
+            <Logo />
           </Link>
         </div>
 
