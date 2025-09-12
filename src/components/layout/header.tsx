@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { Leaf, Menu, ShoppingCart } from 'lucide-react';
+import { Leaf, Menu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { cn } from '@/lib/utils';
@@ -53,18 +53,12 @@ export function Header() {
                     </Link>
                   ))}
                 </nav>
-                 <div className="mt-auto border-t pt-6 flex items-center gap-2">
-                    <Button variant="ghost" size="icon" className="h-12 w-12">
-                      <ShoppingCart className="h-6 w-6" />
-                      <span className="sr-only">Shopping Cart</span>
-                    </Button>
-                  </div>
               </div>
             </SheetContent>
           </Sheet>
         </div>
 
-        <div className="flex items-center justify-start">
+        <div className="flex flex-1 items-center justify-start">
           <Link href="/" className="flex items-center gap-2 transition-transform duration-300 hover:scale-105">
             <Leaf className="h-6 w-6 text-primary" />
             <span className="font-logo text-xl font-bold tracking-wider">Soni Exim</span>
@@ -88,12 +82,7 @@ export function Header() {
           </div>
         </nav>
 
-        <div className="flex items-center justify-end">
-          <Button variant="ghost" size="icon">
-            <ShoppingCart />
-            <span className="sr-only">Shopping Cart</span>
-          </Button>
-        </div>
+        <div className="flex flex-1 items-center justify-end" />
       </div>
       <div className="container">
         <hr className="border-t border-border" />
