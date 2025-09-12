@@ -65,12 +65,11 @@ export function Products() {
 
   const ProductGrid = ({ oils }: { oils: Oil[] }) => (
     <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
-      {oils.map((oil, i) => (
+      {oils.map((oil) => (
         <ProductCard
           key={oil.id}
           oil={oil}
           className="animate-fade-in-up"
-          style={{ animationDelay: `${i * 100}ms` }}
         />
       ))}
     </div>

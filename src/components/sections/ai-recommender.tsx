@@ -20,6 +20,7 @@ import {
 } from '@/components/ui/dialog';
 import { Check } from 'lucide-react';
 import { Skeleton } from '../ui/skeleton';
+import { cn } from '@/lib/utils';
 
 export function AiRecommender() {
   const [recommendation, setRecommendation] = useState<OilRecommendationOutput | null>(null);
@@ -32,32 +33,34 @@ export function AiRecommender() {
       .map((id) => products.find((p) => p.id === id))
       .filter((p): p is Oil => !!p) || [];
 
-  const ProductCard = ({ oil }: { oil: Oil }) => {
+  const ProductCard = ({ oil, className }: { oil: Oil; className?: string }) => {
     const productImage = PlaceHolderImages.find((img) => img.id === oil.id);
     return (
       <Card
-        className="group cursor-pointer overflow-hidden transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-2"
+        className={cn(
+          'group relative cursor-pointer overflow-hidden rounded-xl transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-2 border-2 border-transparent hover:border-primary',
+          className
+        )}
         onClick={() => setSelectedOil(oil)}
       >
-        <CardHeader className="p-0">
-          <div className="relative aspect-4/3 w-full overflow-hidden transition-transform duration-300 group-hover:scale-105">
-            {productImage && (
-              <Image
-                src={productImage.imageUrl}
-                alt={oil.name}
-                width={400}
-                height={300}
-                className="h-full w-full object-cover transition-opacity duration-500 ease-in-out opacity-0"
-                data-ai-hint={productImage.imageHint}
-                onLoadingComplete={(image) => image.classList.remove('opacity-0')}
-              />
-            )}
-          </div>
-        </CardHeader>
-        <CardContent className="p-4">
-          <h3 className="font-semibold">{oil.name}</h3>
-          <p className="text-sm text-muted-foreground">{oil.shortDescription}</p>
-        </CardContent>
+        <div className="absolute inset-0 z-0">
+        {productImage && (
+          <Image
+            src={productImage.imageUrl}
+            alt={oil.name}
+            fill
+            className="object-cover transition-transform duration-500 group-hover:scale-110 opacity-0"
+            data-ai-hint={productImage.imageHint}
+            onLoadingComplete={(image) => image.classList.remove('opacity-0')}
+          />
+        )}
+        <div className="absolute inset-0 bg-black/20 transition-all duration-500 group-hover:bg-black/40" />
+        </div>
+        <div className="relative z-10 flex h-full min-h-48 items-center justify-center p-4">
+            <div className="flex h-32 w-32 items-center justify-center rounded-2xl bg-black/20 p-4 text-center shadow-md backdrop-blur-sm transition-all duration-300 group-hover:bg-black/30">
+                 <h3 className="font-semibold text-center text-white">{oil.name}</h3>
+            </div>
+        </div>
       </Card>
     );
   };
