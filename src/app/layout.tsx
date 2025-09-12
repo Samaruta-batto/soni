@@ -2,6 +2,9 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 import Image from 'next/image';
+import { Header } from '@/components/layout/header';
+import { Footer } from '@/components/layout/footer';
+import { PageWrapper } from '@/components/layout/page-wrapper';
 
 export const metadata: Metadata = {
   title: 'Soni Exim Enhanced',
@@ -34,12 +37,16 @@ export default function RootLayout({
           />
           <div className="absolute inset-0 bg-black/50" />
         </div>
-        <div className="relative min-h-dvh flex flex-col items-center py-8 md:py-16">
-          <div className="w-full max-w-6xl">
-            {children}
-            <Toaster />
-          </div>
+        <div className="relative min-h-dvh flex flex-col items-center">
+          <Header />
+          <main className="w-full flex-1 flex flex-col items-center py-8 md:py-16">
+            <div className="w-full max-w-6xl">
+              <PageWrapper>{children}</PageWrapper>
+            </div>
+          </main>
+          <Footer />
         </div>
+        <Toaster />
       </body>
     </html>
   );

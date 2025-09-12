@@ -20,7 +20,7 @@ export function Header() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-background">
+    <header className="sticky top-0 z-50 w-full bg-background/80 backdrop-blur-sm">
       <div className="container flex h-20 items-center">
         <div className="md:hidden">
           <Sheet open={isSheetOpen} onOpenChange={setSheetOpen}>
@@ -30,9 +30,9 @@ export function Header() {
                 <span className="sr-only">Open menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="left">
+            <SheetContent side="left" className="bg-background/90">
               <div className="flex h-full flex-col">
-                 <div className="flex items-center justify-between border-b pb-4">
+                <div className="flex items-center justify-between border-b pb-4">
                   <Link href="/" className="flex items-center gap-2" onClick={() => setSheetOpen(false)}>
                     <Leaf className="h-6 w-6 text-primary" />
                     <span className="font-logo text-xl font-bold tracking-wider">Soni Exim</span>
@@ -66,7 +66,7 @@ export function Header() {
         </div>
 
         <nav className="hidden w-full items-center justify-center md:flex">
-           <div className="flex items-center gap-8">
+          <div className="flex items-center gap-8">
             {navItems.map((item) => (
               <Link
                 key={item.label}
