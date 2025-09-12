@@ -28,25 +28,25 @@
   }
 
   .dark {
-    --background: 20 14% 5%;
-    --foreground: 40 33% 96%;
-    --card: 20 14% 7%;
-    --card-foreground: 40 33% 96%;
-    --popover: 20 14% 5%;
-    --popover-foreground: 40 33% 96%;
-    --primary: 100 35% 45%;
-    --primary-foreground: 100 20% 95%;
-    --secondary: 20 14% 10%;
-    --secondary-foreground: 40 33% 96%;
-    --muted: 20 14% 10%;
-    --muted-foreground: 40 33% 60%;
-    --accent: 20 14% 12%;
-    --accent-foreground: 40 33% 96%;
+    --background: 85 10% 15%; /* Deep olive/charcoal from 'Shade' */
+    --foreground: 85 20% 80%; /* Light grey-green for text */
+    --card: 85 10% 20%; /* Slightly lighter than background */
+    --card-foreground: 85 20% 85%;
+    --popover: 85 10% 15%;
+    --popover-foreground: 85 20% 85%;
+    --primary: 60 50% 50%; /* 'Glaze' - vibrant gold/green */
+    --primary-foreground: 60 100% 10%;
+    --secondary: 85 10% 25%; /* 'Tone' */
+    --secondary-foreground: 85 20% 85%;
+    --muted: 85 10% 22%;
+    --muted-foreground: 85 15% 60%;
+    --accent: 80 20% 30%; /* 'Olive Green' */
+    --accent-foreground: 80 20% 90%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 20 14% 15%;
-    --input: 20 14% 15%;
-    --ring: 100 35% 45%;
+    --border: 85 10% 30%;
+    --input: 85 10% 30%;
+    --ring: 60 50% 50%; /* 'Glaze' for focus rings */
   }
 }
 
