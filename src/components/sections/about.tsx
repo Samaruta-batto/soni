@@ -28,7 +28,6 @@ const whySoniExim = [
 
 export function About() {
   const aboutImage = PlaceHolderImages.find((img) => img.id === 'section-about');
-  const aboutBgImage = PlaceHolderImages.find((img) => img.id === 'about-section-bg');
 
   const VisionFront = (
     <div className="flex h-full flex-col items-center justify-center p-6 text-center">
@@ -104,16 +103,7 @@ export function About() {
 
   return (
     <section id="about" className="relative w-full overflow-hidden">
-      {aboutBgImage && (
-        <Image
-          src={aboutBgImage.imageUrl}
-          alt={aboutBgImage.description}
-          fill
-          className="object-cover w-full h-full"
-          data-ai-hint={aboutBgImage.imageHint}
-        />
-      )}
-      <div className="relative z-10 w-full py-16 md:py-24 lg:py-32 bg-secondary/80 backdrop-blur-sm">
+      <div className="relative z-10 w-full py-16 md:py-24 lg:py-32">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-24">
             <div className="flex items-center justify-center animate-fade-in-up group">

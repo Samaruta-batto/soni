@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
+import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: 'Soni Exim Enhanced',
@@ -22,9 +23,23 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="font-body antialiased">
-        {children}
-        <Toaster />
+      <body className="font-body antialiased relative">
+        <div className="fixed inset-0 z-[-1]">
+          <Image
+            src="https://picsum.photos/seed/naturebg/1920/1280"
+            alt="Nature background"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-black/50" />
+        </div>
+        <div className="relative min-h-dvh flex flex-col items-center py-8 md:py-16">
+          <div className="w-full max-w-6xl">
+            {children}
+            <Toaster />
+          </div>
+        </div>
       </body>
     </html>
   );

@@ -37,7 +37,7 @@ export function Hero() {
   const heroImage = hoveredCategory;
 
   return (
-    <section className="relative w-full overflow-hidden bg-background">
+    <section className="relative w-full overflow-hidden">
       <div className="relative h-[60vh] min-h-[500px] w-full transition-all duration-500 ease-in-out">
         {heroImage && (
           <Image
@@ -49,7 +49,7 @@ export function Hero() {
             priority
           />
         )}
-        <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-card/90 via-card/20 to-transparent" />
       </div>
 
       <div className="relative z-10 -mt-32 pb-12 text-center md:pb-20">

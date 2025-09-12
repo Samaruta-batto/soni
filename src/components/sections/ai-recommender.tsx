@@ -117,9 +117,9 @@ export function AiRecommender() {
 
   return (
     <>
-    <section id="ai-recommender" className="w-full py-16 md:py-24 lg:py-32 bg-accent">
+    <section id="ai-recommender" className="w-full py-16 md:py-24 lg:py-32">
       <div className="container mx-auto px-4 md:px-6">
-        <Card className="mx-auto max-w-2xl">
+        <Card className="mx-auto max-w-2xl bg-card/80 backdrop-blur-sm">
           <CardHeader className="text-center">
             <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
               <BrainCircuit className="h-6 w-6 text-primary" />

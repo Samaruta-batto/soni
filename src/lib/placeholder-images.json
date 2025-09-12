@@ -4,25 +4,25 @@
     {
       "id": "hero-background",
       "description": "Lush green leaves with water droplets, representing nature and purity.",
-      "imageUrl": "https://picsum.photos/seed/hero/1200/800",
+      "imageUrl": "/images/green leaves.jpg",
       "imageHint": "green leaves"
     },
     {
       "id": "category-essential-bg",
       "description": "Background for essential oils category.",
-      "imageUrl": "https://picsum.photos/seed/essential/1200/800",
+      "imageUrl": "/images/essential oils.jpg",
       "imageHint": "essential oils"
     },
     {
       "id": "category-carrier-bg",
       "description": "Background for carrier oils category.",
-      "imageUrl": "https://picsum.photos/seed/carrier/1200/800",
+      "imageUrl": "/images/carrier oil.jpg",
       "imageHint": "carrier oils"
     },
     {
       "id": "category-scf-bg",
       "description": "Background for SCF CO2 oils category.",
-      "imageUrl": "https://picsum.photos/seed/scf/1200/800",
+      "imageUrl": "/images/lab oil.jpg",
       "imageHint": "laboratory glassware"
     },
     {
@@ -34,13 +34,13 @@
     {
       "id": "about-section-bg",
       "description": "Subtle background texture with faint leaf patterns for the About Us section.",
-      "imageUrl": "https://picsum.photos/seed/about-bg/1920/1080",
+      "imageUrl": "/images/leaves.jpg",
       "imageHint": "leaves texture"
     },
     {
       "id": "contact-card-bg",
       "description": "A stylish flat lay of a notebook, pen, and a small plant, suggesting communication and nature.",
-      "imageUrl": "https://picsum.photos/seed/contact-card/600/400",
+      "imageUrl": "/images/contact.jpg",
       "imageHint": "contact background"
     },
     {
