@@ -28,6 +28,7 @@ const whySoniExim = [
 
 export function About() {
   const aboutImage = PlaceHolderImages.find((img) => img.id === 'section-about');
+  const aboutBgImage = PlaceHolderImages.find((img) => img.id === 'about-section-bg');
 
   const VisionFront = (
     <div className="flex h-full flex-col items-center justify-center p-6 text-center">
@@ -102,49 +103,60 @@ export function About() {
 
 
   return (
-    <section id="about" className="w-full py-16 md:py-24 lg:py-32 bg-secondary/50">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="grid gap-12 lg:grid-cols-2 lg:gap-24">
-          <div className="flex items-center justify-center animate-fade-in-up">
-            {aboutImage && (
-              <Image
-                src={aboutImage.imageUrl}
-                alt={aboutImage.description}
-                width={550}
-                height={550}
-                className="mx-auto aspect-square overflow-hidden rounded-xl object-cover shadow-2xl transition-opacity duration-500 ease-in-out opacity-0"
-                data-ai-hint={aboutImage.imageHint}
-                onLoadingComplete={(image) => image.classList.remove('opacity-0')}
-              />
-            )}
-          </div>
-          <div className="flex flex-col justify-center space-y-6">
-            <div className="animate-fade-in-up">
-              <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                About Soni Exim
-              </h2>
-              <p className="text-muted-foreground md:text-lg/relaxed">
-                At SONI EXIM, we are proud to be a leading exporter of premium Essential oils, Carrier
-                oils, SCF CO2 oils and Oleoresins from India. Our commitment to quality and
-                sustainability ensures that our products meet the highest standards, catering to the
-                diverse needs of our global clientele. We believe in the power of nature and are
-                committed to providing 100% natural oils.
-              </p>
+    <section id="about" className="relative w-full overflow-hidden">
+      {aboutBgImage && (
+        <Image
+          src={aboutBgImage.imageUrl}
+          alt={aboutBgImage.description}
+          fill
+          className="object-cover w-full h-full"
+          data-ai-hint={aboutBgImage.imageHint}
+        />
+      )}
+      <div className="relative z-10 w-full py-16 md:py-24 lg:py-32 bg-secondary/80 backdrop-blur-sm">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="grid gap-12 lg:grid-cols-2 lg:gap-24">
+            <div className="flex items-center justify-center animate-fade-in-up">
+              {aboutImage && (
+                <Image
+                  src={aboutImage.imageUrl}
+                  alt={aboutImage.description}
+                  width={550}
+                  height={550}
+                  className="mx-auto aspect-square overflow-hidden rounded-xl object-cover shadow-2xl transition-opacity duration-500 ease-in-out opacity-0"
+                  data-ai-hint={aboutImage.imageHint}
+                  onLoadingComplete={(image) => image.classList.remove('opacity-0')}
+                />
+              )}
+            </div>
+            <div className="flex flex-col justify-center space-y-6">
+              <div className="animate-fade-in-up rounded-xl bg-card/50 p-6 shadow-lg">
+                <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-card-foreground">
+                  About Soni Exim
+                </h2>
+                <p className="text-muted-foreground md:text-lg/relaxed">
+                  At SONI EXIM, we are proud to be a leading exporter of premium Essential oils, Carrier
+                  oils, SCF CO2 oils and Oleoresins from India. Our commitment to quality and
+                  sustainability ensures that our products meet the highest standards, catering to the
+                  diverse needs of our global clientele. We believe in the power of nature and are
+                  committed to providing 100% natural oils.
+                </p>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div className="mt-16 grid gap-8 md:mt-24 md:grid-cols-2 animate-fade-in-up">
-           <FlippingCard front={VisionFront} back={VisionBack} />
-           <FlippingCard front={MissionFront} back={MissionBack} />
-        </div>
+          <div className="mt-16 grid gap-8 md:mt-24 md:grid-cols-2 animate-fade-in-up">
+            <FlippingCard front={VisionFront} back={VisionBack} />
+            <FlippingCard front={MissionFront} back={MissionBack} />
+          </div>
 
-        <div className="mt-16 md:mt-24 animate-fade-in-up">
-           <FlippingCard front={WhySoniEximFront} back={WhySoniEximBack} className="h-80" />
-        </div>
+          <div className="mt-16 md:mt-24 animate-fade-in-up">
+            <FlippingCard front={WhySoniEximFront} back={WhySoniEximBack} className="h-80" />
+          </div>
 
-        <div className="mt-16 md:mt-24">
-          <ContactCard />
+          <div className="mt-16 md:mt-24">
+            <ContactCard />
+          </div>
         </div>
       </div>
     </section>
