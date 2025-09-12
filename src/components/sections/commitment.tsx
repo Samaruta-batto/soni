@@ -8,7 +8,6 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-  type CarouselApi,
 } from '@/components/ui/carousel';
 import Autoplay from 'embla-carousel-autoplay';
 
@@ -34,21 +33,9 @@ const testimonials = [
 ];
 
 export function Commitment() {
-  const [api, setApi] = React.useState<CarouselApi>();
-  
-  React.useEffect(() => {
-    if (!api) {
-      return;
-    }
-
-    const autoplay = Autoplay({ delay: 5000, stopOnInteraction: true });
-    autoplay.init(api);
-
-    return () => {
-      autoplay.destroy();
-    };
-  }, [api]);
-
+  const plugin = React.useRef(
+    Autoplay({ delay: 5000, stopOnInteraction: true })
+  );
 
   return (
     <section id="commitment" className="w-full py-16 md:py-24 lg:py-32 bg-accent/10">
@@ -65,12 +52,14 @@ export function Commitment() {
         </div>
         <div className="w-full max-w-2xl mx-auto">
           <Carousel
-            setApi={setApi}
+            plugins={[plugin.current]}
             opts={{
               align: 'start',
               loop: true,
             }}
             className="w-full"
+            onMouseEnter={plugin.current.stop}
+            onMouseLeave={plugin.current.reset}
           >
             <CarouselContent>
               {testimonials.map((testimonial, index) => (
