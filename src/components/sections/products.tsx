@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { useState } from 'react';
 import { products, Oil } from '@/lib/data';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { Card, CardContent, CardHeader } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import {
   Dialog,
   DialogContent,
@@ -36,36 +36,35 @@ export function Products() {
     return (
       <Card
         className={cn(
-          'group cursor-pointer overflow-hidden transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-2',
+          'group relative cursor-pointer overflow-hidden rounded-xl transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-2',
           className
         )}
         onClick={() => setSelectedOil(oil)}
       >
-        <CardHeader className="p-0">
-          <div className="relative aspect-4/3 w-full overflow-hidden transition-transform duration-300 group-hover:scale-105">
-            {productImage && (
-              <Image
-                src={productImage.imageUrl}
-                alt={oil.name}
-                width={400}
-                height={300}
-                className="h-full w-full object-cover transition-opacity duration-500 ease-in-out opacity-0"
-                data-ai-hint={productImage.imageHint}
-                onLoadingComplete={(image) => image.classList.remove('opacity-0')}
-              />
-            )}
-          </div>
-        </CardHeader>
-        <CardContent className="p-4">
-          <h3 className="font-semibold">{oil.name}</h3>
-          <p className="text-sm text-muted-foreground">{oil.shortDescription}</p>
-        </CardContent>
+        <div className="absolute inset-0 z-0">
+        {productImage && (
+          <Image
+            src={productImage.imageUrl}
+            alt={oil.name}
+            fill
+            className="object-cover transition-transform duration-500 group-hover:scale-110 opacity-0"
+            data-ai-hint={productImage.imageHint}
+            onLoadingComplete={(image) => image.classList.remove('opacity-0')}
+          />
+        )}
+        <div className="absolute inset-0 bg-black/20 transition-all duration-500 group-hover:bg-black/40" />
+        </div>
+        <div className="relative z-10 flex h-full min-h-48 items-center justify-center p-4">
+            <div className="flex h-32 w-32 items-center justify-center rounded-2xl bg-white/90 p-4 text-center shadow-md backdrop-blur-sm transition-all duration-300 group-hover:bg-white">
+                 <h3 className="font-semibold text-center text-primary">{oil.name}</h3>
+            </div>
+        </div>
       </Card>
     );
   };
 
   const ProductGrid = ({ oils }: { oils: Oil[] }) => (
-    <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+    <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
       {oils.map((oil, i) => (
         <ProductCard
           key={oil.id}
@@ -83,16 +82,16 @@ export function Products() {
     <>
       <section id="products" className="w-full py-16 md:py-24 lg:py-32">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="mb-12 text-center">
-            <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl animate-fade-in-up">
+          <div className="mb-12 text-center animate-fade-in-up">
+            <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
               Our Products
             </h2>
-            <p className="mx-auto mt-4 max-w-[700px] text-muted-foreground md:text-xl animate-fade-in-up">
+            <p className="mx-auto mt-4 max-w-[700px] text-muted-foreground md:text-xl">
               Explore our diverse range of pure and natural oils, crafted for your well-being.
             </p>
           </div>
 
-          <Tabs defaultValue={oilCategories[0].slug} className="w-full">
+          <Tabs defaultValue={oilCategories[0].slug} className="w-full animate-fade-in-up">
             <TabsList className="grid w-full grid-cols-3">
               {oilCategories.map((category) => (
                 <TabsTrigger key={category.slug} value={category.slug}>
