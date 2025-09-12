@@ -101,7 +101,7 @@ export function About() {
   return (
     <section id="about" className="w-full py-16 md:py-24 lg:py-32 bg-secondary/50">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="grid gap-12 lg:grid-cols-2 lg:gap-24">
+        <div className="grid gap-12 lg:grid-cols-2 lg:gap-24 animate-fade-in-up">
           <div className="flex items-center justify-center">
             {aboutImage && (
               <Image
@@ -128,12 +128,12 @@ export function About() {
           </div>
         </div>
 
-        <div className="mt-16 grid gap-8 md:mt-24 md:grid-cols-2">
+        <div className="mt-16 grid gap-8 md:mt-24 md:grid-cols-2 animate-fade-in-up">
            <FlippingCard front={VisionFront} back={VisionBack} />
            <FlippingCard front={MissionFront} back={MissionBack} />
         </div>
 
-        <div className="mt-16 md:mt-24">
+        <div className="mt-16 md:mt-24 animate-fade-in-up">
            <FlippingCard front={WhySoniEximFront} back={WhySoniEximBack} className="h-80" />
         </div>
       </div>

@@ -30,7 +30,7 @@ export function Products() {
     const productImage = PlaceHolderImages.find((img) => img.id === oil.id);
     return (
       <Card
-        className="group cursor-pointer overflow-hidden transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-2"
+        className="group cursor-pointer overflow-hidden transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-2 animate-fade-in-up"
         onClick={() => setSelectedOil(oil)}
       >
         <CardHeader className="p-0">
@@ -69,7 +69,7 @@ export function Products() {
     <>
       <section id="products" className="w-full py-16 md:py-24 lg:py-32">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="mb-12 text-center">
+          <div className="mb-12 text-center animate-fade-in-up">
             <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
               Our Products
             </h2>
@@ -78,7 +78,7 @@ export function Products() {
             </p>
           </div>
 
-          <Tabs defaultValue="essential" className="w-full">
+          <Tabs defaultValue="essential" className="w-full animate-fade-in-up">
             <TabsList className="mx-auto mb-8 grid w-full max-w-md grid-cols-3">
               <TabsTrigger value="essential">Essential Oils</TabsTrigger>
               <TabsTrigger value="carrier">Carrier Oils</TabsTrigger>

@@ -57,7 +57,4 @@
   body {
     @apply bg-background text-foreground transition-colors duration-300;
   }
-  section {
-    @apply animate-fade-in-up;
-  }
 }

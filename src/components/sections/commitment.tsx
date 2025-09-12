@@ -39,7 +39,7 @@ export function Commitment() {
 
   return (
     <section id="commitment" className="w-full py-16 md:py-24 lg:py-32 bg-accent/10">
-      <div className="container mx-auto grid items-center justify-center gap-8 px-4 text-center md:px-6">
+      <div className="container mx-auto grid items-center justify-center gap-8 px-4 text-center md:px-6 animate-fade-in-up">
         <div className="space-y-3">
           <h2 className="font-headline text-3xl font-bold tracking-tighter md:text-4xl/tight">
             Our Commitment to Quality
