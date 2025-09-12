@@ -72,7 +72,7 @@ export function Hero() {
                   onMouseEnter={() => setHoveredCategory(category.image)}
                   onMouseLeave={() => setHoveredCategory(defaultHeroImage)}
                 >
-                  <Card className="flex h-full flex-col items-center justify-center p-6 text-center transition-all duration-300 ease-in-out hover:bg-card/90 hover:shadow-2xl hover:-translate-y-2">
+                  <Card className="flex h-full flex-col items-center justify-center p-6 text-center transition-all duration-300 ease-in-out hover:bg-card/90 hover:shadow-2xl hover:-translate-y-2 border-2 border-transparent hover:border-primary">
                     <div className="mb-4 text-primary transition-transform duration-300 group-hover:scale-110">
                       {category.icon}
                     </div>

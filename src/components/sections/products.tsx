@@ -36,7 +36,7 @@ export function Products() {
     return (
       <Card
         className={cn(
-          'group relative cursor-pointer overflow-hidden rounded-xl transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-2',
+          'group relative cursor-pointer overflow-hidden rounded-xl transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-2 border-2 border-transparent hover:border-primary',
           className
         )}
         onClick={() => setSelectedOil(oil)}
