@@ -1,7 +1,9 @@
+
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { CheckCircle, Eye, Gem, Target } from 'lucide-react';
+import { FlippingCard } from '@/components/ui/flipping-card';
 
 const whySoniExim = [
   {
@@ -23,6 +25,45 @@ const whySoniExim = [
 
 export function About() {
   const aboutImage = PlaceHolderImages.find((img) => img.id === 'section-about');
+
+  const VisionFront = (
+    <div className="flex h-full flex-col items-center justify-center p-6 text-center">
+      <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary mb-4">
+        <Eye className="h-8 w-8" />
+      </div>
+      <h3 className="font-headline text-2xl font-bold">Our Vision</h3>
+      <p className="mt-2 text-sm text-muted-foreground italic">Hover to reveal</p>
+    </div>
+  );
+
+  const VisionBack = (
+    <div className="flex h-full flex-col items-center justify-center p-6 text-center">
+      <p className="text-muted-foreground">
+        SONI EXIM has the vision to grow into the world’s largest and the most trusted
+        manufacturer & supplier of the purest natural products priced competitively.
+      </p>
+    </div>
+  );
+
+  const MissionFront = (
+    <div className="flex h-full flex-col items-center justify-center p-6 text-center">
+      <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary mb-4">
+        <Target className="h-8 w-8" />
+      </div>
+      <h3 className="font-headline text-2xl font-bold">Our Mission</h3>
+      <p className="mt-2 text-sm text-muted-foreground italic">Hover to reveal</p>
+    </div>
+  );
+
+  const MissionBack = (
+     <div className="flex h-full flex-col items-center justify-center p-6 text-center">
+      <p className="text-muted-foreground">
+        We collectively work towards our mission to ensure a memorable and pleasant
+        experience to every customer through dedicated customer service.
+      </p>
+    </div>
+  );
+
 
   return (
     <section id="about" className="w-full py-16 md:py-24 lg:py-32 bg-secondary/50">
@@ -55,38 +96,8 @@ export function About() {
         </div>
 
         <div className="mt-16 grid gap-8 md:mt-24 md:grid-cols-2">
-          <Card>
-            <CardHeader>
-              <div className="flex items-center gap-4">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
-                  <Eye className="h-6 w-6" />
-                </div>
-                <CardTitle className="font-headline">Our Vision</CardTitle>
-              </div>
-            </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground">
-                SONI EXIM has the vision to grow into the world’s largest and the most trusted
-                manufacturer & supplier of the purest natural products priced competitively.
-              </p>
-            </CardContent>
-          </Card>
-          <Card>
-            <CardHeader>
-              <div className="flex items-center gap-4">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
-                  <Target className="h-6 w-6" />
-                </div>
-                <CardTitle className="font-headline">Our Mission</CardTitle>
-              </div>
-            </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground">
-                We collectively work towards our mission to ensure a memorable and pleasant
-                experience to every customer through dedicated customer service.
-              </p>
-            </CardContent>
-          </Card>
+           <FlippingCard front={VisionFront} back={VisionBack} />
+           <FlippingCard front={MissionFront} back={MissionBack} />
         </div>
 
         <div className="mt-16 md:mt-24">
