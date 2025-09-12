@@ -123,18 +123,18 @@ export function About() {
                   alt={aboutImage.description}
                   width={550}
                   height={550}
-                  className="mx-auto aspect-square overflow-hidden rounded-xl object-cover shadow-2xl transition-all duration-500 ease-in-out opacity-0 group-hover:scale-105"
+                  className="mx-auto aspect-square overflow-hidden rounded-xl object-cover shadow-2xl transition-all duration-500 ease-in-out group-hover:scale-105 opacity-0"
                   data-ai-hint={aboutImage.imageHint}
                   onLoadingComplete={(image) => image.classList.remove('opacity-0')}
                 />
               )}
             </div>
             <div className="flex flex-col justify-center space-y-6">
-              <div className="animate-fade-in-up rounded-xl bg-card/50 p-6 shadow-lg">
-                <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-card-foreground">
+              <div className="animate-fade-in-up rounded-xl bg-card/50 p-8 shadow-lg">
+                <h2 className="font-headline text-3xl font-bold tracking-tighter text-card-foreground sm:text-4xl md:text-5xl">
                   About Soni Exim
                 </h2>
-                <p className="text-muted-foreground md:text-lg/relaxed">
+                <p className="mt-4 text-muted-foreground md:text-lg/relaxed">
                   At SONI EXIM, we are proud to be a leading exporter of premium Essential oils, Carrier
                   oils, SCF CO2 oils and Oleoresins from India. Our commitment to quality and
                   sustainability ensures that our products meet the highest standards, catering to the
