@@ -19,6 +19,7 @@ import {
   DialogTitle,
 } from '@/components/ui/dialog';
 import { Check } from 'lucide-react';
+import { Skeleton } from '../ui/skeleton';
 
 export function AiRecommender() {
   const [recommendation, setRecommendation] = useState<OilRecommendationOutput | null>(null);
@@ -86,6 +87,31 @@ export function AiRecommender() {
     }
   }
 
+  const LoadingState = () => (
+    <div className="mt-6">
+      <Alert>
+        <Loader2 className="h-4 w-4 animate-spin" />
+        <AlertTitle className="font-bold">Our AI is thinking...</AlertTitle>
+        <AlertDescription>
+          Please wait a moment while we prepare your personalized recommendations.
+        </AlertDescription>
+      </Alert>
+      <div className="mt-6 grid grid-cols-2 gap-4 md:grid-cols-3">
+        {[...Array(3)].map((_, i) => (
+          <Card key={i}>
+            <CardHeader className="p-0">
+              <Skeleton className="aspect-4/3 w-full" />
+            </CardHeader>
+            <CardContent className="p-4 space-y-2">
+              <Skeleton className="h-4 w-3/4" />
+              <Skeleton className="h-4 w-full" />
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+    </div>
+  );
+
   return (
     <>
     <section id="ai-recommender" className="w-full py-16 md:py-24 lg:py-32">
@@ -125,6 +151,8 @@ export function AiRecommender() {
                 )}
               </Button>
             </form>
+
+            {isLoading && <LoadingState />}
 
             {recommendation && (
               <div className="mt-6">
