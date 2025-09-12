@@ -116,14 +116,14 @@ export function About() {
       <div className="relative z-10 w-full py-16 md:py-24 lg:py-32 bg-secondary/80 backdrop-blur-sm">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-24">
-            <div className="flex items-center justify-center animate-fade-in-up">
+            <div className="flex items-center justify-center animate-fade-in-up group">
               {aboutImage && (
                 <Image
                   src={aboutImage.imageUrl}
                   alt={aboutImage.description}
                   width={550}
                   height={550}
-                  className="mx-auto aspect-square overflow-hidden rounded-xl object-cover shadow-2xl transition-opacity duration-500 ease-in-out opacity-0"
+                  className="mx-auto aspect-square overflow-hidden rounded-xl object-cover shadow-2xl transition-all duration-500 ease-in-out opacity-0 group-hover:scale-105"
                   data-ai-hint={aboutImage.imageHint}
                   onLoadingComplete={(image) => image.classList.remove('opacity-0')}
                 />
