@@ -1,3 +1,4 @@
+
 'use client';
 
 import { Mail, Phone } from 'lucide-react';
@@ -7,9 +8,12 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
+import Image from 'next/image';
 
 export function Contact() {
   const { toast } = useToast();
+  const contactBgImage = PlaceHolderImages.find((img) => img.id === 'contact-section-bg');
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -22,11 +26,21 @@ export function Contact() {
     (e.target as HTMLFormElement).reset();
   };
   return (
-    <section id="contact" className="w-full py-16 md:py-24 lg:py-32 bg-secondary">
+    <section id="contact" className="relative w-full overflow-hidden">
+       {contactBgImage && (
+        <Image
+          src={contactBgImage.imageUrl}
+          alt={contactBgImage.description}
+          fill
+          className="object-cover w-full h-full"
+          data-ai-hint={contactBgImage.imageHint}
+        />
+      )}
+      <div className="relative z-10 w-full py-16 md:py-24 lg:py-32 bg-secondary/80 backdrop-blur-sm">
       <div className="container mx-auto px-4 md:px-6">
         <div className="mx-auto max-w-4xl">
           <div className="grid gap-12 md:grid-cols-2 animate-fade-in-up">
-            <div className="space-y-4">
+            <div className="space-y-4 rounded-xl bg-card/50 p-6 shadow-lg">
               <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl">
                 Contact Us Today
               </h2>
@@ -34,7 +48,7 @@ export function Contact() {
                 Have a question or ready to place an order? Get in touch with our team.
               </p>
               <div className="space-y-4 pt-4">
-                <div className="flex items-start gap-4 rounded-lg p-4 transition-all duration-300 hover:bg-card hover:shadow-lg">
+                <div className="flex items-start gap-4 rounded-lg p-4 transition-all duration-300 hover:bg-card/80 hover:shadow-md">
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-primary/10 text-primary">
                     <Phone className="h-5 w-5" />
                   </div>
@@ -43,7 +57,7 @@ export function Contact() {
                     <p className="text-muted-foreground">+1 (234) 567-890</p>
                   </div>
                 </div>
-                <div className="flex items-start gap-4 rounded-lg p-4 transition-all duration-300 hover:bg-card hover:shadow-lg">
+                <div className="flex items-start gap-4 rounded-lg p-4 transition-all duration-300 hover:bg-card/80 hover:shadow-md">
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-primary/10 text-primary">
                     <Mail className="h-5 w-5" />
                   </div>
@@ -88,6 +102,7 @@ export function Contact() {
             </Card>
           </div>
         </div>
+      </div>
       </div>
     </section>
   );
