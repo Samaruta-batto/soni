@@ -7,6 +7,24 @@
       "imageHint": "green leaves"
     },
     {
+      "id": "category-essential-bg",
+      "description": "Background for essential oils category.",
+      "imageUrl": "https://picsum.photos/seed/essential/1200/800",
+      "imageHint": "essential oils"
+    },
+    {
+      "id": "category-carrier-bg",
+      "description": "Background for carrier oils category.",
+      "imageUrl": "https://picsum.photos/seed/carrier/1200/800",
+      "imageHint": "carrier oils"
+    },
+    {
+      "id": "category-scf-bg",
+      "description": "Background for SCF CO2 oils category.",
+      "imageUrl": "https://picsum.photos/seed/scf/1200/800",
+      "imageHint": "laboratory glassware"
+    },
+    {
       "id": "section-about",
       "description": "A collection of small glass bottles with droppers, containing various essential oils, arranged on a rustic wooden surface.",
       "imageUrl": "https://picsum.photos/seed/about/550/550",

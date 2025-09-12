@@ -14,17 +14,17 @@ import {
 } from '@/components/ui/dialog';
 import { Check } from 'lucide-react';
 import { ContactCard } from './contact-card';
-import { HorizontalScroll } from '../ui/horizontal-scroll';
 import { cn } from '@/lib/utils';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 const essentialOils = products.filter((p) => p.category === 'essential');
 const carrierOils = products.filter((p) => p.category === 'carrier');
 const scfOils = products.filter((p) => p.category === 'scf');
 
 const oilCategories = [
-  { title: 'Essential Oils', oils: essentialOils },
-  { title: 'Carrier Oils', oils: carrierOils },
-  { title: 'SCF CO₂ & Oleoresins', oils: scfOils },
+  { title: 'Essential Oils', slug: 'essential', oils: essentialOils },
+  { title: 'Carrier Oils', slug: 'carrier', oils: carrierOils },
+  { title: 'SCF CO₂ & Oleoresins', slug: 'scf', oils: scfOils },
 ];
 
 export function Products() {
@@ -89,18 +89,22 @@ export function Products() {
               Explore our diverse range of pure and natural oils, crafted for your well-being.
             </p>
           </div>
-        </div>
 
-        <HorizontalScroll>
-          {oilCategories.map((category) => (
-            <div key={category.title} className="flex h-full min-w-full flex-col justify-center px-4 md:px-8 lg:px-16">
-               <h3 className="font-headline text-2xl font-bold tracking-tighter sm:text-3xl md:text-4xl mb-8 text-center">
-                {category.title}
-              </h3>
-              <ProductGrid oils={category.oils} />
-            </div>
-          ))}
-        </HorizontalScroll>
+          <Tabs defaultValue={oilCategories[0].slug} className="w-full">
+            <TabsList className="grid w-full grid-cols-3">
+              {oilCategories.map((category) => (
+                <TabsTrigger key={category.slug} value={category.slug}>
+                  {category.title}
+                </TabsTrigger>
+              ))}
+            </TabsList>
+            {oilCategories.map((category) => (
+              <TabsContent key={category.slug} value={category.slug} className="mt-8">
+                <ProductGrid oils={category.oils} />
+              </TabsContent>
+            ))}
+          </Tabs>
+        </div>
 
         <div className="container mx-auto px-4 md:px-6 mt-16 md:mt-24">
           <ContactCard />

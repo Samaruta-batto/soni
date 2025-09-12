@@ -5,6 +5,7 @@ import { About } from '@/components/sections/about';
 import { Products } from '@/components/sections/products';
 import { Commitment } from '@/components/sections/commitment';
 import { Contact } from '@/components/sections/contact';
+import { useState } from 'react';
 
 export default function Home() {
   return (
