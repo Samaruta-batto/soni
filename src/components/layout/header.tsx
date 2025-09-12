@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState } from 'react';
@@ -21,7 +22,7 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full bg-background/80 backdrop-blur-sm">
-      <div className="container flex h-20 items-center">
+      <div className="container flex h-16 items-center">
         <div className="md:hidden">
           <Sheet open={isSheetOpen} onOpenChange={setSheetOpen}>
             <SheetTrigger asChild>
@@ -39,6 +40,17 @@ export function Header() {
                   </Link>
                 </div>
                 <nav className="mt-6 flex flex-col gap-6">
+                  <Link
+                      key="home"
+                      href="/"
+                      className={cn(
+                        'text-lg font-medium transition-colors duration-300',
+                        pathname === '/' ? 'text-primary' : 'hover:text-primary'
+                      )}
+                      onClick={() => setSheetOpen(false)}
+                    >
+                      Home
+                    </Link>
                   {navItems.map((item) => (
                     <Link
                       key={item.label}
@@ -67,6 +79,16 @@ export function Header() {
 
         <nav className="hidden w-full items-center justify-center md:flex">
           <div className="flex items-center gap-8">
+             <Link
+                key="home"
+                href="/"
+                className={cn(
+                  'text-sm font-medium transition-colors duration-300 hover:text-foreground',
+                  pathname === '/' ? 'text-foreground' : 'text-muted-foreground'
+                )}
+              >
+                Home
+              </Link>
             {navItems.map((item) => (
               <Link
                 key={item.label}
