@@ -4,11 +4,7 @@ import Image from 'next/image';
 import { useState } from 'react';
 import { products, Oil } from '@/lib/data';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import {
-  Card,
-  CardContent,
-  CardHeader,
-} from '@/components/ui/card';
+import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import {
   Dialog,
   DialogContent,
@@ -16,22 +12,32 @@ import {
   DialogHeader,
   DialogTitle,
 } from '@/components/ui/dialog';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Check } from 'lucide-react';
 import { ContactCard } from './contact-card';
+import { HorizontalScroll } from '../ui/horizontal-scroll';
+import { cn } from '@/lib/utils';
 
 const essentialOils = products.filter((p) => p.category === 'essential');
 const carrierOils = products.filter((p) => p.category === 'carrier');
 const scfOils = products.filter((p) => p.category === 'scf');
 
+const oilCategories = [
+  { title: 'Essential Oils', oils: essentialOils },
+  { title: 'Carrier Oils', oils: carrierOils },
+  { title: 'SCF CO₂ & Oleoresins', oils: scfOils },
+];
+
 export function Products() {
   const [selectedOil, setSelectedOil] = useState<Oil | null>(null);
 
-  const ProductCard = ({ oil }: { oil: Oil }) => {
+  const ProductCard = ({ oil, className }: { oil: Oil; className?: string }) => {
     const productImage = PlaceHolderImages.find((img) => img.id === oil.id);
     return (
       <Card
-        className="group cursor-pointer overflow-hidden transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-2 animate-fade-in-up"
+        className={cn(
+          'group cursor-pointer overflow-hidden transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-2',
+          className
+        )}
         onClick={() => setSelectedOil(oil)}
       >
         <CardHeader className="p-0">
@@ -55,11 +61,16 @@ export function Products() {
       </Card>
     );
   };
-  
+
   const ProductGrid = ({ oils }: { oils: Oil[] }) => (
     <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
-      {oils.map((oil) => (
-        <ProductCard key={oil.id} oil={oil} />
+      {oils.map((oil, i) => (
+        <ProductCard
+          key={oil.id}
+          oil={oil}
+          className="animate-fade-in-up"
+          style={{ animationDelay: `${i * 100}ms` }}
+        />
       ))}
     </div>
   );
@@ -70,40 +81,34 @@ export function Products() {
     <>
       <section id="products" className="w-full py-16 md:py-24 lg:py-32">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="mb-12 text-center animate-fade-in-up">
-            <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+          <div className="mb-12 text-center">
+            <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl animate-fade-in-up">
               Our Products
             </h2>
-            <p className="mx-auto mt-4 max-w-[700px] text-muted-foreground md:text-xl">
+            <p className="mx-auto mt-4 max-w-[700px] text-muted-foreground md:text-xl animate-fade-in-up">
               Explore our diverse range of pure and natural oils, crafted for your well-being.
             </p>
           </div>
+        </div>
 
-          <Tabs defaultValue="essential" className="w-full animate-fade-in-up">
-            <TabsList className="mx-auto mb-8 grid w-full max-w-md grid-cols-3">
-              <TabsTrigger value="essential">Essential Oils</TabsTrigger>
-              <TabsTrigger value="carrier">Carrier Oils</TabsTrigger>
-              <TabsTrigger value="scf">SCF CO₂ & Oleoresins</TabsTrigger>
-            </TabsList>
-            <TabsContent value="essential">
-              <ProductGrid oils={essentialOils} />
-            </TabsContent>
-            <TabsContent value="carrier">
-              <ProductGrid oils={carrierOils} />
-            </TabsContent>
-            <TabsContent value="scf">
-               <ProductGrid oils={scfOils} />
-            </TabsContent>
-          </Tabs>
+        <HorizontalScroll>
+          {oilCategories.map((category) => (
+            <div key={category.title} className="flex h-full min-w-full flex-col justify-center px-4 md:px-8 lg:px-16">
+               <h3 className="font-headline text-2xl font-bold tracking-tighter sm:text-3xl md:text-4xl mb-8 text-center">
+                {category.title}
+              </h3>
+              <ProductGrid oils={category.oils} />
+            </div>
+          ))}
+        </HorizontalScroll>
 
-          <div className="mt-16 md:mt-24">
-            <ContactCard />
-          </div>
+        <div className="container mx-auto px-4 md:px-6 mt-16 md:mt-24">
+          <ContactCard />
         </div>
       </section>
 
       <Dialog open={!!selectedOil} onOpenChange={(open) => !open && setSelectedOil(null)}>
-      <DialogContent className="sm:max-w-lg p-0 flex flex-col max-h-[90vh] overflow-y-auto">
+        <DialogContent className="sm:max-w-lg p-0 flex flex-col max-h-[90vh] overflow-y-auto">
           {selectedOil && (
             <>
               {selectedOilImage && (
