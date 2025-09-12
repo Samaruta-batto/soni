@@ -55,8 +55,8 @@ export function Products() {
         <div className="absolute inset-0 bg-black/20 transition-all duration-500 group-hover:bg-black/40" />
         </div>
         <div className="relative z-10 flex h-full min-h-48 items-center justify-center p-4">
-            <div className="flex h-32 w-32 items-center justify-center rounded-2xl bg-white/90 p-4 text-center shadow-md backdrop-blur-sm transition-all duration-300 group-hover:bg-white">
-                 <h3 className="font-semibold text-center text-primary">{oil.name}</h3>
+            <div className="flex h-32 w-32 items-center justify-center rounded-2xl bg-black/20 p-4 text-center shadow-md backdrop-blur-sm transition-all duration-300 group-hover:bg-black/30">
+                 <h3 className="font-semibold text-center text-white">{oil.name}</h3>
             </div>
         </div>
       </Card>
