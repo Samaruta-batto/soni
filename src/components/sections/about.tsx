@@ -64,6 +64,39 @@ export function About() {
     </div>
   );
 
+  const WhySoniEximFront = (
+    <div className="flex h-full flex-col items-center justify-center p-6 text-center">
+       <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary mb-4">
+        <Gem className="h-8 w-8" />
+      </div>
+      <h3 className="font-headline text-2xl font-bold">Why Soni Exim?</h3>
+      <p className="mt-2 text-sm text-muted-foreground italic">Hover to reveal</p>
+    </div>
+  );
+
+  const WhySoniEximBack = (
+    <Card className="h-full w-full">
+       <CardHeader>
+        <div className="flex items-center gap-4">
+          <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
+            <Gem className="h-6 w-6" />
+          </div>
+          <CardTitle className="font-headline">Why Soni Exim?</CardTitle>
+        </div>
+      </CardHeader>
+      <CardContent>
+        <ul className="space-y-4">
+          {whySoniExim.map((item, index) => (
+            <li key={index} className="flex items-start gap-3">
+              <CheckCircle className="mt-1 h-5 w-5 shrink-0 text-primary" />
+              <span className="text-muted-foreground">{item.text}</span>
+            </li>
+          ))}
+        </ul>
+      </CardContent>
+    </Card>
+  );
+
 
   return (
     <section id="about" className="w-full py-16 md:py-24 lg:py-32 bg-secondary/50">
@@ -101,26 +134,7 @@ export function About() {
         </div>
 
         <div className="mt-16 md:mt-24">
-          <Card className="w-full">
-            <CardHeader>
-              <div className="flex items-center gap-4">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
-                  <Gem className="h-6 w-6" />
-                </div>
-                <CardTitle className="font-headline">Why Soni Exim?</CardTitle>
-              </div>
-            </CardHeader>
-            <CardContent>
-              <ul className="space-y-4">
-                {whySoniExim.map((item, index) => (
-                  <li key={index} className="flex items-start gap-3">
-                    <CheckCircle className="mt-1 h-5 w-5 shrink-0 text-primary" />
-                    <span className="text-muted-foreground">{item.text}</span>
-                  </li>
-                ))}
-              </ul>
-            </CardContent>
-          </Card>
+           <FlippingCard front={WhySoniEximFront} back={WhySoniEximBack} className="h-80" />
         </div>
       </div>
     </section>
