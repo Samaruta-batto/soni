@@ -46,7 +46,7 @@
     {
       "id": "contact-section-bg",
       "description": "A clean, modern desk setup with a laptop, notebook, and a small plant.",
-      "imageUrl": "https://picsum.photos/seed/contact-bg/1920/1080",
+      "imageUrl": "/images/desktop.jpg",
       "imageHint": "desk setup"
     },
     { "id": "essential-1", "description": "Peppermint Oil", "imageUrl": "/images/peppermint-oil.jpg", "imageHint": "peppermint oil bottle" },

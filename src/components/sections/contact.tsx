@@ -13,6 +13,7 @@ import Image from 'next/image';
 
 export function Contact() {
   const { toast } = useToast();
+  const contactImage = PlaceHolderImages.find((img) => img.id === 'contact-section-bg');
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -29,7 +30,7 @@ export function Contact() {
       <div className="relative z-10 w-full py-16 md:py-24 lg:py-32">
         <div className="container mx-auto px-4 md:px-6">
           <div className="mx-auto max-w-4xl">
-            <div className="grid gap-12 md:grid-cols-2 animate-fade-in-up">
+            <div className="grid gap-12 md:grid-cols-2 animate-fade-in-up items-center">
               <div className="space-y-4 rounded-xl bg-card/50 p-6 shadow-lg">
                 <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl">
                   Contact Us Today

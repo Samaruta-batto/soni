@@ -6,7 +6,7 @@ export function PageWrapper({ children, className }: { children: React.ReactNode
   return (
     <div
       className={cn(
-        'flex flex-col bg-card/90 rounded-xl shadow-2xl overflow-hidden animate-fade-in-up backdrop-blur-sm',
+        'flex flex-col bg-card/50 rounded-xl shadow-2xl overflow-hidden animate-fade-in-up backdrop-blur-sm',
         className
       )}
     >
