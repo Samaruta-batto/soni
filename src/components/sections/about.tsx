@@ -101,8 +101,8 @@ export function About() {
   return (
     <section id="about" className="w-full py-16 md:py-24 lg:py-32 bg-secondary/50">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="grid gap-12 lg:grid-cols-2 lg:gap-24 animate-fade-in-up">
-          <div className="flex items-center justify-center">
+        <div className="grid gap-12 lg:grid-cols-2 lg:gap-24">
+          <div className="flex items-center justify-center animate-fade-in-up">
             {aboutImage && (
               <Image
                 src={aboutImage.imageUrl}
@@ -114,7 +114,7 @@ export function About() {
               />
             )}
           </div>
-          <div className="flex flex-col justify-center space-y-6">
+          <div className="flex flex-col justify-center space-y-6 animate-fade-in-up">
             <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
               About Soni Exim
             </h2>
