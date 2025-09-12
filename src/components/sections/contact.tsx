@@ -34,7 +34,7 @@ export function Contact() {
                 Have a question or ready to place an order? Get in touch with our team.
               </p>
               <div className="space-y-4 pt-4">
-                <div className="flex items-start gap-4">
+                <div className="flex items-start gap-4 rounded-lg p-4 transition-all duration-300 hover:bg-card hover:shadow-lg">
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-primary/10 text-primary">
                     <Phone className="h-5 w-5" />
                   </div>
@@ -43,7 +43,7 @@ export function Contact() {
                     <p className="text-muted-foreground">+1 (234) 567-890</p>
                   </div>
                 </div>
-                <div className="flex items-start gap-4">
+                <div className="flex items-start gap-4 rounded-lg p-4 transition-all duration-300 hover:bg-card hover:shadow-lg">
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-primary/10 text-primary">
                     <Mail className="h-5 w-5" />
                   </div>
@@ -54,7 +54,7 @@ export function Contact() {
                 </div>
               </div>
             </div>
-            <Card>
+            <Card className="transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
               <CardHeader>
                 <CardTitle>Send a Message</CardTitle>
                 <CardDescription>
@@ -80,7 +80,7 @@ export function Contact() {
                       required
                     />
                   </div>
-                  <Button type="submit" className="w-full" variant="outline">
+                  <Button type="submit" className="w-full">
                     Send Message
                   </Button>
                 </form>
