@@ -1,4 +1,6 @@
 
+'use client';
+
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -110,7 +112,7 @@ export function About() {
                 alt={aboutImage.description}
                 width={550}
                 height={550}
-                className="mx-auto aspect-square overflow-hidden rounded-xl object-cover shadow-2xl transition-opacity duration-500 ease-in-out"
+                className="mx-auto aspect-square overflow-hidden rounded-xl object-cover shadow-2xl transition-opacity duration-500 ease-in-out opacity-0"
                 data-ai-hint={aboutImage.imageHint}
                 onLoadingComplete={(image) => image.classList.remove('opacity-0')}
               />
