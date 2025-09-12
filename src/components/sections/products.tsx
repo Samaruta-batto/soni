@@ -18,6 +18,7 @@ import {
 } from '@/components/ui/dialog';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Check } from 'lucide-react';
+import { ContactCard } from './contact-card';
 
 const essentialOils = products.filter((p) => p.category === 'essential');
 const carrierOils = products.filter((p) => p.category === 'carrier');
@@ -94,6 +95,10 @@ export function Products() {
                <ProductGrid oils={scfOils} />
             </TabsContent>
           </Tabs>
+
+          <div className="mt-16 md:mt-24">
+            <ContactCard />
+          </div>
         </div>
       </section>
 

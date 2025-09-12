@@ -4,6 +4,7 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { CheckCircle, Eye, Gem, Target } from 'lucide-react';
 import { FlippingCard } from '@/components/ui/flipping-card';
+import { ContactCard } from './contact-card';
 
 const whySoniExim = [
   {
@@ -115,16 +116,18 @@ export function About() {
             )}
           </div>
           <div className="flex flex-col justify-center space-y-6 animate-fade-in-up">
-            <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-              About Soni Exim
-            </h2>
-            <p className="text-muted-foreground md:text-lg/relaxed">
-              At SONI EXIM, we are proud to be a leading exporter of premium Essential oils, Carrier
-              oils, SCF CO2 oils and Oleoresins from India. Our commitment to quality and
-              sustainability ensures that our products meet the highest standards, catering to the
-              diverse needs of our global clientele. We believe in the power of nature and are
-              committed to providing 100% natural oils.
-            </p>
+            <div className="animate-fade-in-up">
+              <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+                About Soni Exim
+              </h2>
+              <p className="text-muted-foreground md:text-lg/relaxed">
+                At SONI EXIM, we are proud to be a leading exporter of premium Essential oils, Carrier
+                oils, SCF CO2 oils and Oleoresins from India. Our commitment to quality and
+                sustainability ensures that our products meet the highest standards, catering to the
+                diverse needs of our global clientele. We believe in the power of nature and are
+                committed to providing 100% natural oils.
+              </p>
+            </div>
           </div>
         </div>
 
@@ -135,6 +138,10 @@ export function About() {
 
         <div className="mt-16 md:mt-24 animate-fade-in-up">
            <FlippingCard front={WhySoniEximFront} back={WhySoniEximBack} className="h-80" />
+        </div>
+
+        <div className="mt-16 md:mt-24">
+          <ContactCard />
         </div>
       </div>
     </section>

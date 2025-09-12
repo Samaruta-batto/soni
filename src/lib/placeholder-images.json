@@ -12,6 +12,12 @@
       "imageUrl": "https://picsum.photos/seed/about/550/550",
       "imageHint": "essential oils"
     },
+    {
+      "id": "contact-card-bg",
+      "description": "A stylish flat lay of a notebook, pen, and a small plant, suggesting communication and nature.",
+      "imageUrl": "https://picsum.photos/seed/contact-card/600/400",
+      "imageHint": "contact background"
+    },
     { "id": "essential-1", "description": "Peppermint Oil", "imageUrl": "/images/peppermint-oil.jpg", "imageHint": "peppermint oil bottle" },
     { "id": "essential-2", "description": "Spearmint Oil", "imageUrl": "/images/spearmint-oil.jpg", "imageHint": "spearmint oil bottle" },
     { "id": "essential-3", "description": "Basil Oil", "imageUrl": "/images/basil-oil.jpg", "imageHint": "basil oil bottle" },
