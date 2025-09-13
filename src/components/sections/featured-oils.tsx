@@ -1,7 +1,7 @@
 
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import Image from 'next/image';
 import { products, Oil } from '@/lib/data';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
@@ -35,9 +35,12 @@ const shuffleArray = (array: Oil[]) => {
 
 export function FeaturedOils() {
   const [selectedOil, setSelectedOil] = useState<Oil | null>(null);
+  const [featuredOils, setFeaturedOils] = useState<Oil[]>([]);
 
-  // Memoize the shuffled products so they don't change on re-render
-  const featuredOils = useMemo(() => shuffleArray(products).slice(0, 6), []);
+  // useEffect to shuffle oils on client-side only to prevent hydration errors
+  useEffect(() => {
+    setFeaturedOils(shuffleArray(products).slice(0, 6));
+  }, []);
 
   const ProductCard = ({ oil, className }: { oil: Oil; className?: string }) => {
     const productImage = PlaceHolderImages.find((img) => img.id === oil.id);
@@ -85,26 +88,27 @@ export function FeaturedOils() {
               A selection of our finest essential, carrier, and specialty oils.
             </p>
           </div>
-
-          <Carousel
-            opts={{
-              align: 'start',
-              loop: true,
-            }}
-            className="w-full animate-fade-in-up"
-          >
-            <CarouselContent>
-              {featuredOils.map((oil) => (
-                <CarouselItem key={oil.id} className="md:basis-1/2 lg:basis-1/3">
-                  <div className="p-1">
-                    <ProductCard oil={oil} />
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious className="hidden sm:flex" />
-            <CarouselNext className="hidden sm:flex" />
-          </Carousel>
+          {featuredOils.length > 0 && (
+            <Carousel
+              opts={{
+                align: 'start',
+                loop: true,
+              }}
+              className="w-full animate-fade-in-up"
+            >
+              <CarouselContent>
+                {featuredOils.map((oil) => (
+                  <CarouselItem key={oil.id} className="md:basis-1/2 lg:basis-1/3">
+                    <div className="p-1">
+                      <ProductCard oil={oil} />
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="hidden sm:flex" />
+              <CarouselNext className="hidden sm:flex" />
+            </Carousel>
+          )}
         </div>
       </section>
 
