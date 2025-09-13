@@ -36,7 +36,7 @@ export function Hero() {
 
   return (
     <section className="relative w-full">
-      <div className="relative h-[60vh] min-h-[500px] w-full">
+      <div className="relative h-[60vh] min-h-[500px] w-full sm:h-[70vh] sm:min-h-[600px]">
         {heroImage && (
           <Image
             src={heroImage.imageUrl}
@@ -51,39 +51,41 @@ export function Hero() {
       </div>
 
       <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-white p-4">
-        <div className="max-w-3xl mx-auto space-y-4 animate-fade-in-up">
-          <h1 className="font-headline text-4xl font-bold sm:text-5xl md:text-6xl">
-            Soni Exim Product Range
-          </h1>
-          <p className="text-lg text-white/90 md:text-xl">
-            Our company is focused towards delivering complete value. Discover the pure essence of
-            nature with our premium oils.
-          </p>
+        <div className="absolute top-0 inset-x-0 pt-24 sm:pt-32">
+            <div className="max-w-3xl mx-auto space-y-4 animate-fade-in-up">
+            <h1 className="font-headline text-4xl font-bold sm:text-5xl md:text-6xl">
+                Soni Exim Product Range
+            </h1>
+            <p className="text-lg text-white/90 md:text-xl">
+                Our company is focused towards delivering complete value. Discover the pure essence of
+                nature with our premium oils.
+            </p>
+            </div>
         </div>
-      </div>
 
-      <div className="absolute bottom-0 left-0 right-0 z-10 -mb-24 sm:-mb-12 pb-8 md:pb-12 text-center">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 md:gap-6 animate-fade-in-up">
-            {categories.map((category) => (
-              <Link key={category.slug} href="/products">
-                <div
-                  className="group"
-                  onMouseEnter={() => setHoveredCategory(category.image)}
-                  onMouseLeave={() => setHoveredCategory(defaultHeroImage)}
-                >
-                  <Card className="flex h-full flex-col items-center justify-center p-6 text-center transition-all duration-300 ease-in-out bg-card/80 backdrop-blur-sm shadow-lg hover:shadow-2xl hover:-translate-y-2 border-2 border-transparent hover:border-primary">
-                    <div className="mb-4 text-primary transition-transform duration-300 group-hover:scale-110">
-                      {category.icon}
+        <div className="absolute bottom-0 left-0 right-0 sm:-bottom-12 pb-8 md:pb-12 text-center">
+            <div className="container mx-auto px-4 md:px-6">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 md:gap-6 animate-fade-in-up">
+                {categories.map((category) => (
+                <Link key={category.slug} href="/products">
+                    <div
+                    className="group"
+                    onMouseEnter={() => setHoveredCategory(category.image)}
+                    onMouseLeave={() => setHoveredCategory(defaultHeroImage)}
+                    >
+                    <Card className="flex h-full flex-col items-center justify-center p-6 text-center transition-all duration-300 ease-in-out bg-card/80 backdrop-blur-sm shadow-lg hover:shadow-2xl hover:-translate-y-2 border-2 border-transparent hover:border-primary">
+                        <div className="mb-4 text-primary transition-transform duration-300 group-hover:scale-110">
+                        {category.icon}
+                        </div>
+                        <div className="font-headline text-xl font-bold text-card-foreground">
+                        {category.name}
+                        </div>
+                    </Card>
                     </div>
-                    <div className="font-headline text-xl font-bold text-card-foreground">
-                      {category.name}
-                    </div>
-                  </Card>
-                </div>
-              </Link>
-            ))}
-          </div>
+                </Link>
+                ))}
+            </div>
+            </div>
         </div>
       </div>
     </section>
