@@ -39,7 +39,7 @@ export function Hero() {
   return (
     <section className="relative w-full overflow-hidden">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="max-w-3xl mx-auto space-y-4 text-center py-12 md:py-20 animate-fade-in-up">
+        <div className="max-w-3xl mx-auto space-y-4 text-center py-8 md:py-12 animate-fade-in-up">
           <h1 className="font-headline text-4xl font-bold text-foreground sm:text-5xl md:text-6xl">
             Soni Exim Product Range
           </h1>
@@ -63,7 +63,7 @@ export function Hero() {
         <div className="absolute inset-0 bg-gradient-to-t from-card/90 via-card/20 to-transparent" />
       </div>
 
-      <div className="relative z-10 -mt-20 pb-12 text-center md:pb-20">
+      <div className="relative z-10 -mt-20 pb-8 md:pb-12 text-center">
         <div className="container mx-auto px-4 md:px-6">
           <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-3 md:gap-6 animate-fade-in-up">
             {categories.map((category) => (
