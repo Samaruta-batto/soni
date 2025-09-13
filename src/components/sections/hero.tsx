@@ -36,18 +36,19 @@ export function Hero() {
 
   return (
     <section className="relative w-full">
-      <div className="relative h-[70vh] min-h-[500px] w-full md:h-[60vh]">
+      <div className="relative h-[60vh] min-h-[500px] w-full">
         {heroImage && (
           <Image
             src={heroImage.imageUrl}
             alt={heroImage.description}
-            fill
+            width={1600}
+            height={900}
             className="h-full w-full object-cover object-center"
             data-ai-hint={heroImage.imageHint}
             priority
           />
         )}
-        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 bg-black/50 bg-gradient-to-t from-black/20 to-transparent" />
       </div>
 
       <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-white p-4">
@@ -72,7 +73,7 @@ export function Hero() {
                   onMouseEnter={() => setHoveredCategory(category.image)}
                   onMouseLeave={() => setHoveredCategory(defaultHeroImage)}
                 >
-                  <Card className="flex h-full flex-col items-center justify-center p-6 text-center transition-all duration-300 ease-in-out bg-card/50 hover:bg-card/80 backdrop-blur-sm shadow-lg hover:shadow-2xl hover:-translate-y-2 border-2 border-transparent hover:border-primary">
+                  <Card className="flex h-full flex-col items-center justify-center p-6 text-center transition-all duration-300 ease-in-out bg-card/80 backdrop-blur-sm shadow-lg hover:shadow-2xl hover:-translate-y-2 border-2 border-transparent hover:border-primary">
                     <div className="mb-4 text-primary transition-transform duration-300 group-hover:scale-110">
                       {category.icon}
                     </div>
