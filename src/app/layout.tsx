@@ -52,6 +52,7 @@ export default function RootLayout({
             fill
             className="fixed inset-0 z-[-1] h-full w-full object-cover"
             data-ai-hint={bgImage.imageHint}
+            priority
           />
         )}
         <div className="fixed inset-0 z-[-1] bg-background/70" />
