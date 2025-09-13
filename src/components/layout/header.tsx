@@ -16,14 +16,34 @@ const navItems = [
   { href: '/contact', label: 'Contact Us' },
 ];
 
-export function Header() {
-  const [isSheetOpen, setSheetOpen] = useState(false);
-  const [isClient, setIsClient] = useState(false);
+const NavLink = ({
+  href,
+  children,
+  className,
+  ...props
+}: {
+  href: string;
+  children: React.ReactNode;
+  className?: string;
+}) => {
   const pathname = usePathname();
+  const [isActive, setIsActive] = useState(false);
 
   useEffect(() => {
-    setIsClient(true);
-  }, []);
+    setIsActive(pathname === href);
+  }, [pathname, href]);
+
+  return (
+    <Link href={href} className={className} data-active={isActive} {...props}>
+      {children}
+    </Link>
+  );
+};
+
+
+export function Header() {
+  const [isSheetOpen, setSheetOpen] = useState(false);
+  const pathname = usePathname();
 
   const Logo = () => (
     <div className="flex items-center gap-2 rounded-md p-2">
@@ -54,34 +74,30 @@ export function Header() {
                   </Link>
                 </div>
                 <nav className="mt-6 flex flex-col gap-6">
-                  {isClient && (
-                    <>
-                      <Link
-                        key="home"
-                        href="/"
-                        className={cn(
-                          'text-lg font-medium transition-colors duration-300',
-                          pathname === '/' ? 'text-primary' : 'hover:text-primary'
-                        )}
-                        onClick={() => setSheetOpen(false)}
-                      >
-                        Home
-                      </Link>
-                      {navItems.map((item) => (
-                        <Link
-                          key={item.label}
-                          href={item.href}
-                          className={cn(
-                            'text-lg font-medium transition-colors duration-300',
-                            pathname === item.href ? 'text-primary' : 'hover:text-primary'
-                          )}
-                          onClick={() => setSheetOpen(false)}
-                        >
-                          {item.label}
-                        </Link>
-                      ))}
-                    </>
-                  )}
+                  <Link
+                    key="home"
+                    href="/"
+                    className={cn(
+                      'text-lg font-medium transition-colors duration-300',
+                      pathname === '/' ? 'text-primary' : 'hover:text-primary'
+                    )}
+                    onClick={() => setSheetOpen(false)}
+                  >
+                    Home
+                  </Link>
+                  {navItems.map((item) => (
+                    <Link
+                      key={item.label}
+                      href={item.href}
+                      className={cn(
+                        'text-lg font-medium transition-colors duration-300',
+                        pathname === item.href ? 'text-primary' : 'hover:text-primary'
+                      )}
+                      onClick={() => setSheetOpen(false)}
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
                 </nav>
               </div>
             </SheetContent>
@@ -96,28 +112,14 @@ export function Header() {
 
         <nav className="hidden w-full items-center justify-center md:flex">
           <div className="flex items-center gap-8">
-            {isClient && (
-              <>
-                <Link
-                  key="home"
-                  href="/"
-                  className="nav-link"
-                  data-active={pathname === '/'}
-                >
-                  Home
-                </Link>
-                {navItems.map((item) => (
-                  <Link
-                    key={item.label}
-                    href={item.href}
-                    className="nav-link"
-                    data-active={pathname === item.href}
-                  >
-                    {item.label}
-                  </Link>
-                ))}
-              </>
-            )}
+            <NavLink href="/" className="nav-link">
+              Home
+            </NavLink>
+            {navItems.map((item) => (
+              <NavLink key={item.label} href={item.href} className="nav-link">
+                {item.label}
+              </NavLink>
+            ))}
           </div>
         </nav>
 
