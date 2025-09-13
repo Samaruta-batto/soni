@@ -11,7 +11,7 @@
     --card-foreground: 20 14% 15%;
     --popover: 40 33% 100%;
     --popover-foreground: 20 14% 15%;
-    --primary: 90 40% 40%;
+    --primary: 90 35% 35%;
     --primary-foreground: 60 9.1% 97.8%;
     --secondary: 40 30% 96%;
     --secondary-foreground: 20 14% 15%;
@@ -56,5 +56,24 @@
   }
   body {
     @apply bg-background text-foreground transition-colors duration-300;
+  }
+}
+
+@layer components {
+  .nav-link {
+    @apply relative text-sm font-medium text-muted-foreground transition-colors duration-300;
+  }
+  .nav-link::after {
+    @apply content-[''] absolute bottom-[-4px] left-0 h-[2px] w-full bg-primary scale-x-0 origin-left transition-transform duration-300 ease-in-out;
+  }
+  .nav-link:hover {
+    @apply text-foreground;
+  }
+  .nav-link:hover::after,
+  .nav-link[data-active='true']::after {
+    @apply scale-x-100;
+  }
+  .nav-link[data-active='true'] {
+    @apply text-foreground;
   }
 }

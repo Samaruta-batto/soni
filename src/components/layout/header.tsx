@@ -31,7 +31,7 @@ export function Header() {
   );
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-background/80 backdrop-blur-sm">
+    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
       <div className="container flex h-16 items-center">
         <div className="md:hidden">
           <Sheet open={isSheetOpen} onOpenChange={setSheetOpen}>
@@ -90,10 +90,8 @@ export function Header() {
              <Link
                 key="home"
                 href="/"
-                className={cn(
-                  'text-sm font-medium transition-colors duration-300 hover:text-foreground',
-                  pathname === '/' ? 'text-foreground' : 'text-muted-foreground'
-                )}
+                className="nav-link"
+                data-active={pathname === '/'}
               >
                 Home
               </Link>
@@ -101,10 +99,8 @@ export function Header() {
               <Link
                 key={item.label}
                 href={item.href}
-                className={cn(
-                  'text-sm font-medium transition-colors duration-300 hover:text-foreground',
-                  pathname === item.href ? 'text-foreground' : 'text-muted-foreground'
-                )}
+                className="nav-link"
+                data-active={pathname === item.href}
               >
                 {item.label}
               </Link>
@@ -113,9 +109,6 @@ export function Header() {
         </nav>
 
         <div className="flex flex-1 items-center justify-end" />
-      </div>
-      <div className="container">
-        <hr className="border-t border-border" />
       </div>
     </header>
   );
