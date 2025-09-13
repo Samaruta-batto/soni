@@ -16,7 +16,6 @@ export function Contact() {
   const { toast } = useToast();
   const cardBgImage = PlaceHolderImages.find((img) => img.id === 'contact-card-bg');
 
-
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     toast({
@@ -27,103 +26,101 @@ export function Contact() {
   };
 
   const ContactFront = (
-     <div className="relative flex h-full flex-col items-center justify-center p-6 text-center text-primary-foreground">
-        {cardBgImage && (
-          <Image
-            src={cardBgImage.imageUrl}
-            alt={cardBgImage.description}
-            width={500}
-            height={600}
-            className="object-cover w-full h-full rounded-xl"
-            data-ai-hint={cardBgImage.imageHint}
-          />
-        )}
-        <div className="absolute inset-0 bg-black/60 rounded-xl" />
-        <div className="relative z-10 flex flex-col items-center">
-          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary mb-4">
-            <MessageSquare className="h-8 w-8" />
-          </div>
-          <h1 className="font-headline text-3xl font-bold">Contact Us Today</h1>
-          <p className="mt-2 max-w-xs">
-            Have a question or ready to place an order? Get in touch with our team.
-          </p>
-          <div className="mt-6 space-y-4 text-left">
-            <div className="flex items-center gap-4">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-primary/10 text-primary">
-                <Phone className="h-5 w-5" />
-              </div>
-              <div>
-                <h2 className="font-semibold text-lg">Export Inquiries</h2>
-                <p className="text-white/80">+1 (234) 567-890</p>
-              </div>
-            </div>
-            <div className="flex items-center gap-4">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-primary/10 text-primary">
-                <Mail className="h-5 w-5" />
-              </div>
-              <div>
-                <h2 className="font-semibold text-lg">General Support</h2>
-                <p className="text-white/80">contact@soniexim.com</p>
-              </div>
-            </div>
-          </div>
-          <p className="mt-4 text-sm text-white/70 italic">Hover to flip for more</p>
+    <Card className="relative h-full w-full overflow-hidden text-primary-foreground">
+      {cardBgImage && (
+        <Image
+          src={cardBgImage.imageUrl}
+          alt={cardBgImage.description}
+          fill
+          className="object-cover"
+          data-ai-hint={cardBgImage.imageHint}
+        />
+      )}
+      <div className="absolute inset-0 bg-black/60" />
+      <CardContent className="relative z-10 flex h-full flex-col items-center justify-center p-6 text-center">
+        <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary">
+          <MessageSquare className="h-8 w-8" />
         </div>
-      </div>
+        <h1 className="font-headline text-3xl font-bold">Contact Us Today</h1>
+        <p className="mt-2 max-w-xs">
+          Have a question or ready to place an order? Get in touch with our team.
+        </p>
+        <div className="mt-6 space-y-4 text-left">
+          <div className="flex items-center gap-4">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-primary/10 text-primary">
+              <Phone className="h-5 w-5" />
+            </div>
+            <div>
+              <h2 className="font-semibold text-lg">Export Inquiries</h2>
+              <p className="text-white/80">+1 (234) 567-890</p>
+            </div>
+          </div>
+          <div className="flex items-center gap-4">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-primary/10 text-primary">
+              <Mail className="h-5 w-5" />
+            </div>
+            <div>
+              <h2 className="font-semibold text-lg">General Support</h2>
+              <p className="text-white/80">contact@soniexim.com</p>
+            </div>
+          </div>
+        </div>
+        <p className="mt-4 text-sm text-white/70 italic">Hover to flip for more</p>
+      </CardContent>
+    </Card>
   );
 
   const ContactBack = (
-     <div className="relative p-6 h-full flex flex-col text-primary-foreground">
-        {cardBgImage && (
-            <Image
-                src={cardBgImage.imageUrl}
-                alt={cardBgImage.description}
-                width={500}
-                height={600}
-                className="object-cover w-full h-full rounded-xl"
-                data-ai-hint={cardBgImage.imageHint}
-            />
-        )}
-        <div className="absolute inset-0 bg-black/70 rounded-xl" />
-        <div className="relative z-10 flex flex-col h-full">
-            <CardHeader className="p-0 mb-4 text-center">
-                <CardTitle className="font-headline text-2xl">Get in Touch</CardTitle>
-                <CardDescription className="text-white/80">
-                Fill out the form or connect with us on social media.
-                </CardDescription>
-            </CardHeader>
-            <div className="flex-1">
-                <form className="space-y-4" onSubmit={handleSubmit}>
-                <div className="space-y-2">
-                    <Label htmlFor="name">Name</Label>
-                    <Input id="name" placeholder="Your Name" required className="bg-white/10 border-white/20 focus:bg-white/20"/>
-                </div>
-                <div className="space-y-2">
-                    <Label htmlFor="email">Email</Label>
-                    <Input id="email" type="email" placeholder="your@email.com" required className="bg-white/10 border-white/20 focus:bg-white/20"/>
-                </div>
-                <div className="space-y-2">
-                    <Label htmlFor="message">Message</Label>
-                    <Textarea
-                    id="message"
-                    placeholder="Your message..."
-                    className="min-h-[80px] bg-white/10 border-white/20 focus:bg-white/20"
-                    required
-                    />
-                </div>
-                <Button type="submit" className="w-full">
-                    Send Message
-                </Button>
-                </form>
+    <Card className="relative h-full w-full overflow-hidden text-primary-foreground">
+      {cardBgImage && (
+        <Image
+          src={cardBgImage.imageUrl}
+          alt={cardBgImage.description}
+          fill
+          className="object-cover"
+          data-ai-hint={cardBgImage.imageHint}
+        />
+      )}
+      <div className="absolute inset-0 bg-black/70" />
+      <div className="relative z-10 flex h-full flex-col">
+        <CardHeader className="text-center">
+          <CardTitle className="font-headline text-2xl">Get in Touch</CardTitle>
+          <CardDescription className="text-white/80">
+            Fill out the form or connect with us on social media.
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="flex-1">
+          <form className="space-y-4" onSubmit={handleSubmit}>
+            <div className="space-y-2">
+              <Label htmlFor="name">Name</Label>
+              <Input id="name" placeholder="Your Name" required className="bg-white/10 border-white/20 focus:bg-white/20" />
             </div>
-            <div className="mt-6 flex justify-center gap-6">
-                <a href="#" className="text-white/80 hover:text-primary transition-colors"><Facebook /></a>
-                <a href="#" className="text-white/80 hover:text-primary transition-colors"><Instagram /></a>
-                <a href="#" className="text-white/80 hover:text-primary transition-colors"><Twitter /></a>
-                <a href="#" className="text-white/80 hover:text-primary transition-colors"><Linkedin /></a>
+            <div className="space-y-2">
+              <Label htmlFor="email">Email</Label>
+              <Input id="email" type="email" placeholder="your@email.com" required className="bg-white/10 border-white/20 focus:bg-white/20" />
             </div>
+            <div className="space-y-2">
+              <Label htmlFor="message">Message</Label>
+              <Textarea
+                id="message"
+                placeholder="Your message..."
+                className="min-h-[80px] bg-white/10 border-white/20 focus:bg-white/20"
+                required
+              />
+            </div>
+            <Button type="submit" className="w-full">
+              Send Message
+            </Button>
+          </form>
+        </CardContent>
+        <div className="flex justify-center gap-6 pb-6">
+          <a href="#" className="text-white/80 hover:text-primary transition-colors"><Facebook /></a>
+          <a href="#" className="text-white/80 hover:text-primary transition-colors"><Instagram /></a>
+          <a href="#" className="text-white/80 hover:text-primary transition-colors"><Twitter /></a>
+          <a href="#" className="text-white/80 hover:text-primary transition-colors"><Linkedin /></a>
         </div>
-    </div>
+      </div>
+    </Card>
   );
 
   return (
