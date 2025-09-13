@@ -41,14 +41,13 @@ export function Hero() {
           <Image
             src={heroImage.imageUrl}
             alt={heroImage.description}
-            width={1600}
-            height={900}
+            fill
             className="h-full w-full object-cover object-center"
             data-ai-hint={heroImage.imageHint}
             priority
           />
         )}
-        <div className="absolute inset-0 bg-black/50 bg-gradient-to-t from-black/20 to-transparent" />
+        <div className="absolute inset-0 bg-black/60 bg-gradient-to-t from-black/20 to-transparent" />
       </div>
 
       <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-white p-4">
@@ -63,7 +62,7 @@ export function Hero() {
         </div>
       </div>
 
-      <div className="relative z-10 -mt-32 sm:-mt-24 pb-8 md:pb-12 text-center">
+      <div className="absolute bottom-0 left-0 right-0 z-10 -mb-24 sm:-mb-12 pb-8 md:pb-12 text-center">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 md:gap-6 animate-fade-in-up">
             {categories.map((category) => (

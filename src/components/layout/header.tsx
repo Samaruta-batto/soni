@@ -21,11 +21,11 @@ export function Header() {
   const pathname = usePathname();
 
   const Logo = () => (
-    <div className="flex items-center gap-2 rounded-md bg-accent p-2">
+    <div className="flex items-center gap-2 rounded-md p-2">
       <Leaf className="h-6 w-6 text-primary" />
       <div className="flex flex-col leading-none">
-        <span className="font-logo text-sm font-bold tracking-wider">SONI</span>
-        <span className="font-logo text-sm font-bold tracking-wider">EXIM</span>
+        <span className="font-logo text-sm font-bold tracking-wider text-primary">SONI</span>
+        <span className="font-logo text-sm font-bold tracking-wider text-primary">EXIM</span>
       </div>
     </div>
   );
