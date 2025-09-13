@@ -1,7 +1,7 @@
 
 'use client';
 
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { products, Oil } from '@/lib/data';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
@@ -57,10 +57,10 @@ export function FeaturedOils() {
             <Image
               src={productImage.imageUrl}
               alt={oil.name}
-              fill
-              className="object-cover transition-transform duration-500 group-hover:scale-110 opacity-0"
+              width={400}
+              height={400}
+              className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
               data-ai-hint={productImage.imageHint}
-              onLoadingComplete={(image) => image.classList.remove('opacity-0')}
             />
           )}
           <div className="absolute inset-0 bg-black/20 transition-all duration-500 group-hover:bg-black/40" />
@@ -121,10 +121,10 @@ export function FeaturedOils() {
                   <Image
                     src={selectedOilImage.imageUrl}
                     alt={selectedOil.name}
-                    fill
-                    className="object-cover w-full transition-opacity duration-500 ease-in-out opacity-0"
+                    width={600}
+                    height={400}
+                    className="object-cover w-full"
                     data-ai-hint={selectedOilImage.imageHint}
-                    onLoadingComplete={(image) => image.classList.remove('opacity-0')}
                   />
                 </div>
               )}

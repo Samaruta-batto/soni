@@ -36,10 +36,9 @@ export function HomeAbout() {
                   src={aboutImage.imageUrl}
                   alt={aboutImage.description}
                   width={550}
-                  height={550}
-                  className="mx-auto aspect-video w-full max-w-md overflow-hidden rounded-xl object-cover shadow-2xl transition-all duration-500 ease-in-out group-hover:scale-105 opacity-0"
+                  height={310}
+                  className="mx-auto aspect-video w-full max-w-md overflow-hidden rounded-xl object-cover shadow-2xl transition-all duration-500 ease-in-out group-hover:scale-105"
                   data-ai-hint={aboutImage.imageHint}
-                  onLoadingComplete={(image) => image.classList.remove('opacity-0')}
                 />
               )}
             </div>
@@ -48,4 +47,3 @@ export function HomeAbout() {
     </section>
   );
 }
-

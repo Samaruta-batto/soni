@@ -32,8 +32,9 @@ export function Contact() {
           <Image
             src={cardBgImage.imageUrl}
             alt={cardBgImage.description}
-            fill
-            className="object-cover rounded-xl"
+            width={500}
+            height={600}
+            className="object-cover w-full h-full rounded-xl"
             data-ai-hint={cardBgImage.imageHint}
           />
         )}
@@ -77,8 +78,9 @@ export function Contact() {
             <Image
                 src={cardBgImage.imageUrl}
                 alt={cardBgImage.description}
-                fill
-                className="object-cover rounded-xl"
+                width={500}
+                height={600}
+                className="object-cover w-full h-full rounded-xl"
                 data-ai-hint={cardBgImage.imageHint}
             />
         )}
