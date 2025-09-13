@@ -1,7 +1,7 @@
 
 'use client';
 
-import { useState }from 'react';
+import { useState, useMemo } from 'react';
 import Image from 'next/image';
 import { products, Oil } from '@/lib/data';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
@@ -23,11 +23,21 @@ import {
 import { Check } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
-
-const featuredOils = products.filter(p => ['essential-1', 'essential-2', 'essential-3', 'carrier-1', 'carrier-2', 'scf-1'].includes(p.id));
+// Function to shuffle an array
+const shuffleArray = (array: Oil[]) => {
+  const shuffledArray = [...array];
+  for (let i = shuffledArray.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
+  }
+  return shuffledArray;
+};
 
 export function FeaturedOils() {
   const [selectedOil, setSelectedOil] = useState<Oil | null>(null);
+
+  // Memoize the shuffled products so they don't change on re-render
+  const featuredOils = useMemo(() => shuffleArray(products).slice(0, 6), []);
 
   const ProductCard = ({ oil, className }: { oil: Oil; className?: string }) => {
     const productImage = PlaceHolderImages.find((img) => img.id === oil.id);
@@ -40,32 +50,31 @@ export function FeaturedOils() {
         onClick={() => setSelectedOil(oil)}
       >
         <div className="absolute inset-0 z-0">
-        {productImage && (
-          <Image
-            src={productImage.imageUrl}
-            alt={oil.name}
-            fill
-            className="object-cover transition-transform duration-500 group-hover:scale-110 opacity-0"
-            data-ai-hint={productImage.imageHint}
-            onLoadingComplete={(image) => image.classList.remove('opacity-0')}
-          />
-        )}
-        <div className="absolute inset-0 bg-black/20 transition-all duration-500 group-hover:bg-black/40" />
+          {productImage && (
+            <Image
+              src={productImage.imageUrl}
+              alt={oil.name}
+              fill
+              className="object-cover transition-transform duration-500 group-hover:scale-110 opacity-0"
+              data-ai-hint={productImage.imageHint}
+              onLoadingComplete={(image) => image.classList.remove('opacity-0')}
+            />
+          )}
+          <div className="absolute inset-0 bg-black/20 transition-all duration-500 group-hover:bg-black/40" />
         </div>
         <div className="relative z-10 flex h-full min-h-48 items-center justify-center p-4">
-            <div className="flex h-32 w-32 items-center justify-center rounded-2xl bg-black/20 p-4 text-center shadow-md backdrop-blur-sm transition-all duration-300 group-hover:bg-black/30">
-                 <h3 className="font-semibold text-center text-white">{oil.name}</h3>
-            </div>
+          <div className="flex h-32 w-32 items-center justify-center rounded-2xl bg-black/20 p-4 text-center shadow-md backdrop-blur-sm transition-all duration-300 group-hover:bg-black/30">
+            <h3 className="font-semibold text-center text-white">{oil.name}</h3>
+          </div>
         </div>
       </Card>
     );
   };
-  
+
   const selectedOilImage = selectedOil ? PlaceHolderImages.find((img) => img.id === selectedOil.id) : null;
 
-
   return (
-     <>
+    <>
       <section id="featured-oils" className="w-full py-16 md:py-24">
         <div className="container mx-auto px-4 md:px-6">
           <div className="mb-12 text-center animate-fade-in-up">
@@ -109,7 +118,7 @@ export function FeaturedOils() {
                     src={selectedOilImage.imageUrl}
                     alt={selectedOil.name}
                     fill
-                    className="object-contain w-full transition-opacity duration-500 ease-in-out opacity-0"
+                    className="object-cover w-full transition-opacity duration-500 ease-in-out opacity-0"
                     data-ai-hint={selectedOilImage.imageHint}
                     onLoadingComplete={(image) => image.classList.remove('opacity-0')}
                   />

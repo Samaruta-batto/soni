@@ -121,7 +121,7 @@ export function Products() {
                     src={selectedOilImage.imageUrl}
                     alt={selectedOil.name}
                     fill
-                    className="object-contain w-full transition-opacity duration-500 ease-in-out opacity-0"
+                    className="object-cover w-full transition-opacity duration-500 ease-in-out opacity-0"
                     data-ai-hint={selectedOilImage.imageHint}
                     onLoadingComplete={(image) => image.classList.remove('opacity-0')}
                   />
