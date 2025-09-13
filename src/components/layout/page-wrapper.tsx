@@ -6,7 +6,7 @@ export function PageWrapper({ children, className }: { children: React.ReactNode
   return (
     <div
       className={cn(
-        'flex flex-col w-full',
+        'flex flex-col w-full bg-transparent',
         className
       )}
     >
