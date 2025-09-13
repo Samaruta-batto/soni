@@ -6,6 +6,26 @@ import Image from 'next/image';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import { PageWrapper } from '@/components/layout/page-wrapper';
+import { Cinzel, Playfair_Display, Lato } from 'next/font/google';
+import { cn } from '@/lib/utils';
+
+const cinzel = Cinzel({
+  subsets: ['latin'],
+  variable: '--font-cinzel',
+  weight: '700',
+});
+
+const playfairDisplay = Playfair_Display({
+  subsets: ['latin'],
+  variable: '--font-playfair-display',
+  weight: '700',
+});
+
+const lato = Lato({
+  subsets: ['latin'],
+  variable: '--font-lato',
+  weight: ['400', '700'],
+});
 
 export const metadata: Metadata = {
   title: 'Soni Exim Enhanced',
@@ -18,15 +38,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Playfair+Display:wght@700&family=PT+Sans:wght@400;700&display=swap"
-          rel="stylesheet"
-        />
-      </head>
+    <html
+      lang="en"
+      className={cn('scroll-smooth', cinzel.variable, playfairDisplay.variable, lato.variable)}
+    >
       <body className="font-body antialiased relative">
         <div className="fixed inset-0 z-[-1]">
           <Image

@@ -20,9 +20,9 @@ const config = {
     },
     extend: {
       fontFamily: {
-        body: ['"PT Sans"', 'sans-serif'],
-        headline: ['"Playfair Display"', 'serif'],
-        logo: ['"Cinzel"', 'serif'],
+        body: ['var(--font-lato)', 'sans-serif'],
+        headline: ['var(--font-playfair-display)', 'serif'],
+        logo: ['var(--font-cinzel)', 'serif'],
       },
       colors: {
         border: 'hsl(var(--border))',
