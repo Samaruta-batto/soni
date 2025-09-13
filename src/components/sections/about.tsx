@@ -34,7 +34,7 @@ export function About() {
       <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary mb-4">
         <Eye className="h-8 w-8" />
       </div>
-      <h3 className="font-headline text-2xl font-bold">Our Vision</h3>
+      <div className="font-headline text-2xl font-bold">Our Vision</div>
       <p className="mt-2 text-sm text-muted-foreground italic">Hover to reveal</p>
     </div>
   );
@@ -53,7 +53,7 @@ export function About() {
       <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary mb-4">
         <Target className="h-8 w-8" />
       </div>
-      <h3 className="font-headline text-2xl font-bold">Our Mission</h3>
+      <div className="font-headline text-2xl font-bold">Our Mission</div>
       <p className="mt-2 text-sm text-muted-foreground italic">Hover to reveal</p>
     </div>
   );
@@ -72,7 +72,7 @@ export function About() {
        <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary mb-4">
         <Gem className="h-8 w-8" />
       </div>
-      <h3 className="font-headline text-2xl font-bold">Why Soni Exim?</h3>
+      <div className="font-headline text-2xl font-bold">Why Soni Exim?</div>
       <p className="mt-2 text-sm text-muted-foreground italic">Hover to reveal</p>
     </div>
   );
@@ -121,9 +121,9 @@ export function About() {
             </div>
             <div className="flex flex-col justify-center space-y-6">
               <div className="animate-fade-in-up rounded-xl bg-card/50 p-8 shadow-lg">
-                <h2 className="font-headline text-3xl font-bold tracking-tighter text-card-foreground sm:text-4xl md:text-5xl">
+                <h1 className="font-headline text-3xl font-bold tracking-tighter text-card-foreground sm:text-4xl md:text-5xl">
                   About Soni Exim
-                </h2>
+                </h1>
                 <p className="mt-4 text-muted-foreground md:text-lg/relaxed">
                   At SONI EXIM, we are proud to be a leading exporter of premium Essential oils, Carrier
                   oils, SCF CO2 oils and Oleoresins from India. Our commitment to quality and

@@ -67,7 +67,7 @@ export function FeaturedOils() {
         </div>
         <div className="relative z-10 flex h-full min-h-48 items-center justify-center p-4">
           <div className="flex h-32 w-32 items-center justify-center rounded-2xl bg-black/20 p-4 text-center shadow-md backdrop-blur-sm transition-all duration-300 group-hover:bg-black/30">
-            <h3 className="font-semibold text-center text-white">{oil.name}</h3>
+            <div className="font-semibold text-center text-white">{oil.name}</div>
           </div>
         </div>
       </Card>

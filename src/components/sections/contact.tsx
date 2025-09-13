@@ -42,7 +42,7 @@ export function Contact() {
           <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary mb-4">
             <MessageSquare className="h-8 w-8" />
           </div>
-          <h3 className="font-headline text-3xl font-bold">Contact Us Today</h3>
+          <h1 className="font-headline text-3xl font-bold">Contact Us Today</h1>
           <p className="mt-2">
             Have a question or ready to place an order? Get in touch with our team.
           </p>
@@ -52,7 +52,7 @@ export function Contact() {
                 <Phone className="h-5 w-5" />
               </div>
               <div>
-                <h3 className="font-semibold text-left">Export Inquiries</h3>
+                <h2 className="font-semibold text-left text-lg">Export Inquiries</h2>
                 <p className="text-white/80">+1 (234) 567-890</p>
               </div>
             </div>
@@ -61,7 +61,7 @@ export function Contact() {
                 <Mail className="h-5 w-5" />
               </div>
               <div>
-                <h3 className="font-semibold text-left">General Support</h3>
+                <h2 className="font-semibold text-left text-lg">General Support</h2>
                 <p className="text-white/80">contact@soniexim.com</p>
               </div>
             </div>

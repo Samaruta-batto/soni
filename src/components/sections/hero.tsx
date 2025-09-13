@@ -60,7 +60,7 @@ export function Hero() {
             priority
           />
         )}
-        <div className="absolute inset-0 bg-gradient-to-t from-card/90 via-card/20 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-card/90 via-card/50 to-transparent" />
       </div>
 
       <div className="relative z-10 -mt-20 pb-8 md:pb-12 text-center">
@@ -77,7 +77,7 @@ export function Hero() {
                     <div className="mb-4 text-primary transition-transform duration-300 group-hover:scale-110">
                       {category.icon}
                     </div>
-                    <h3 className="font-headline text-xl font-bold">{category.name}</h3>
+                    <div className="font-headline text-xl font-bold">{category.name}</div>
                   </Card>
                 </div>
               </Link>

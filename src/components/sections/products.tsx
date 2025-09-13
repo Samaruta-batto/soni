@@ -56,7 +56,7 @@ export function Products() {
         </div>
         <div className="relative z-10 flex h-full min-h-48 items-center justify-center p-4">
             <div className="flex h-32 w-32 items-center justify-center rounded-2xl bg-black/20 p-4 text-center shadow-md backdrop-blur-sm transition-all duration-300 group-hover:bg-black/30">
-                 <h3 className="font-semibold text-center text-white">{oil.name}</h3>
+                 <div className="font-semibold text-center text-white">{oil.name}</div>
             </div>
         </div>
       </Card>
@@ -82,9 +82,9 @@ export function Products() {
       <section id="products" className="w-full py-16 md:py-24 lg:py-32">
         <div className="container mx-auto px-4 md:px-6">
           <div className="mb-12 text-center animate-fade-in-up">
-            <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+            <h1 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
               Our Products
-            </h2>
+            </h1>
             <p className="mx-auto mt-4 max-w-[700px] text-muted-foreground md:text-xl">
               Explore our diverse range of pure and natural oils, crafted for your well-being.
             </p>

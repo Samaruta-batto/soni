@@ -28,7 +28,7 @@ export function ContactCard() {
         <div className="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent" />
       </div>
       <div className="relative z-10 flex h-full flex-col items-center justify-center p-8 text-center text-primary-foreground">
-        <h3 className="font-headline text-3xl font-bold">Have Questions?</h3>
+        <h2 className="font-headline text-3xl font-bold">Have Questions?</h2>
         <p className="mt-2 max-w-sm text-lg">
           Our team is ready to help you with your needs. Reach out to us today.
         </p>
