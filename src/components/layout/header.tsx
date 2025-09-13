@@ -1,7 +1,7 @@
 
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
 import { Leaf, Menu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -27,11 +27,7 @@ const NavLink = ({
   className?: string;
 }) => {
   const pathname = usePathname();
-  const [isActive, setIsActive] = useState(false);
-
-  useEffect(() => {
-    setIsActive(pathname === href);
-  }, [pathname, href]);
+  const isActive = pathname === href;
 
   return (
     <Link href={href} className={className} data-active={isActive} {...props}>
