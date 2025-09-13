@@ -28,9 +28,9 @@ const lato = Lato({
   weight: ['400', '700'],
 });
 
-export const metadata = {
-  title: 'Soni Exim Enhanced',
-  description: 'Your trusted partner in the world of essential oils.',
+export const metadata: Metadata = {
+  title: 'Soni Exim - Premium Essential Oils',
+  description: 'Discover the pure essence of nature with Soni Exim, your trusted partner and leading exporter of premium essential oils, carrier oils, and natural extracts from India.',
 };
 
 export default function RootLayout({
