@@ -54,7 +54,7 @@ export default function RootLayout({
             data-ai-hint={bgImage.imageHint}
           />
         )}
-        <div className="fixed inset-0 z-[-1] bg-background/80" />
+        <div className="fixed inset-0 z-[-1] bg-background/70" />
         <div className="relative min-h-dvh flex flex-col items-center">
           <Header />
           <main className="w-full flex-1 flex flex-col items-center">
